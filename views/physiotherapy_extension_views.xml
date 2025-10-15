@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <data>
+
+        <record id="view_physiotherapy_form_inherit_extension1" model="ir.ui.view">
+            <field name="name">dsl.physiotherapy.form.inherit.extension</field>
+            <field name="model">dsl.physiotherapy</field>
+            <field name="inherit_id" ref="dsl_hms_physiotherapy.view_physiotherapy_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//notebook/page[@name='history']" position="before">
+                    <page name="advice_selection" string="Advice Selection">
+                        <group>
+                            <field name="advice_ids" domain="[('active', '=', True)]" string="Select Advice"/>
+                        </group>
+                    </page>
+                </xpath>
+
+                <xpath expr="//notebook/page[@name='history']" position="after">
+                    <page name="note_feedback" string="Note">
+                        <group>
+                            <field name="notes" string="Feedback" placeholder="Write feedback here..."/>
+
+                        </group>
+                    </page>
+                </xpath>
+
+                <xpath expr="//group/group/field[@name='company_id']" position="after">
+                    <field name="clinician_id"/>
+                    <field name="date" string="Speechtherapy Date"/>
+                    <field name="physiotherapist_id"/>
+                </xpath>
+
+                <!-- <xpath expr="//group/group/field[@name='gender']" position="after">
+                    <field name="speechtherapy_type_id" context="{'create': False}" options="{'no_open': True}"/>
+                </xpath> -->
+
+                <xpath expr="//page[@name='physiotherapy_info']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//page[@name='lowerlimb_info']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//page[@name='upperlimb_info']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//page[@name='hand_info']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//page[@name='physiotherapy_history']" position="attributes">
+                    <attribute name="string">Speechtherapy History</attribute>
+                </xpath>
+
+                <xpath expr="//page[@name='physiotherapy_history']/group/field[@name='physiotherapy_history']"
+                       position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+                <xpath expr="//page[@name='physiotherapy_history']" position="inside">
+                    <field name="speech_therapy_history" widget="html" readonly="1"/>
+                </xpath>
+
+
+                <xpath expr="//page[@name='history']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+            </field>
+        </record>
+
+        <record id="hms_physiotherapy_treeview_inherit_extension" model="ir.ui.view">
+            <field name="name">dsl.physiotherapy.tree.inherit.extension</field>
+            <field name="model">dsl.physiotherapy</field>
+            <field name="inherit_id" ref="dsl_hms_physiotherapy.hms_physiotherapy_treeview"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='date']" position="attributes">
+                    <attribute name="string">Speechtherapy Date</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='years_sex']" position="after">
+                    <field name="speechtherapy_type_id"/>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+
+
+</odoo>

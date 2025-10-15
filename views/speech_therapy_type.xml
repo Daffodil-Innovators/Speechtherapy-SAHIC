@@ -1,0 +1,44 @@
+<odoo>
+    <!-- Tree View -->
+    <record id="speech_therapy_type_tree" model="ir.ui.view">
+        <field name="name">speech.therapy.type.tree</field>
+        <field name="model">speech.therapy.type</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="price" />
+                <field name="note" />
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="speech_therapy_type_form" model="ir.ui.view">
+        <field name="name">speech.therapy.type.form</field>
+        <field name="model">speech.therapy.type</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="price"/>
+                        </group>
+                        <group>
+                            <field name="note"/>
+                            <field name="active"/>
+                        </group>
+                    </group>
+                </sheet>       
+            </form>
+        </field>
+    </record>
+
+    <record id="action_speechtherapy_type" model="ir.actions.act_window">
+        <field name="name">Speechtherapy Type</field>
+        <field name="res_model">speech.therapy.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

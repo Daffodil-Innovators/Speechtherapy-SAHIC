@@ -1,0 +1,23 @@
+<odoo>
+    <data>
+
+        <record id="dsl_hms_physiotherapy.dsl_physiotherapy" model="ir.ui.menu">
+            <field name="name">Speechtherapy</field>
+        </record>
+
+        <record id="dsl_hms_physiotherapy.main_menu_physiotherapy" model="ir.ui.menu">
+            <field name="name">Speechtherapy</field>
+        </record>
+
+        <record id="dsl_hms_physiotherapy.main_hos_physiotherapy" model="ir.ui.menu">
+            <field name="name">Speechtherapy</field>
+        </record>
+
+        <record id="dsl_hms_physiotherapy.dsl_action_form_physiotherapy" model="ir.actions.act_window">
+            <field name="name">Speechtherapy</field>
+        </record>
+
+    
+    </data>
+
+</odoo>

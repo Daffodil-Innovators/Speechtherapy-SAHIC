@@ -1,0 +1,307 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record id="view_physiotherapy_form_inherit_extension" model="ir.ui.view">
+        <field name="name">dsl.physiotherapy.form.inherit.extension</field>
+        <field name="model">dsl.physiotherapy</field>
+        <field name="inherit_id" ref="dsl_hms_physiotherapy.view_physiotherapy_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//notebook/page[@name='history']" position="before">
+                <page name="advice_selection" string="Advice Selection">
+                    <group>
+                        <field name="advice_ids" domain="[('active', '=', True)]" string="Select Advice"/>
+                    </group>
+                </page>
+            </xpath>
+
+            <!-- General History Page - Added after Advice Selection -->
+            <xpath expr="//notebook/page[@name='advice_selection']" position="after">
+                <page name="general_history" string="General History">
+                    <group col="4" class="custom-group">
+                        <!-- Medical History Section -->
+                        <group string="Medical History" col="4" colspan="4">
+                            <!-- (a) Prenatal & (b) Birth History in the Same Row -->
+                            <group col="2" colspan="4">
+                                <group string="(a) Prenatal History" col="2" colspan="1">
+                                    <field name="history_miscarriage"/>
+                                    <field name="medication_use"/>
+                                    <field name="viral_infections"/>
+                                    <field name="other_illnesses"/>
+                                    <field name="xray_prenatal"/>
+                                    <field name="excessive_vomiting"/>
+                                    <field name="prenatal_others" widget="text" class="compact-text"
+                                           placeholder="Other prenatal details..."/>
+                                </group>
+
+                                <group string="(b) Birth History" col="2" colspan="1">
+                                    <field name="premature_delivery"/>
+                                    <field name="post_term_delivery"/>
+                                    <field name="labour_type" widget="radio" options="{'horizontal': false}"/>
+                                    <field name="hypoxia"/>
+                                    <field name="jaundice_days"/>
+                                    <field name="rh_incompatibility"/>
+                                    <field name="congenital_deformities"/>
+                                    <field name="anesthesia_type" widget="radio" options="{'horizontal': true}"/>
+                                    <field name="birth_cry" widget="radio" options="{'horizontal': true}"/>
+                                    <field name="birth_weight"/>
+                                    <field name="birth_injuries" widget="text" class="compact-text"
+                                           placeholder="Birth injury details..."/>
+                                    <field name="birth_history_others" widget="text" class="compact-text"
+                                           placeholder="Other birth details..."/>
+                                </group>
+                            </group>
+
+                            <!-- (c) Post Natal History -->
+                            <group string="(c) Post Natal History" col="3" colspan="4">
+                                <group col="1">
+                                    <field name="head_injury"/>
+                                    <field name="convulsions"/>
+                                    <field name="ear_infections"/>
+                                    <field name="illnesses_mumps"/>
+                                    <field name="illnesses_chicken_pox"/>
+                                </group>
+                                <group col="1">
+                                    <field name="illnesses_influenza"/>
+                                    <field name="illnesses_typhoid"/>
+                                    <field name="illnesses_whooping_cough"/>
+                                    <field name="illnesses_tb"/>
+                                    <field name="illnesses_meningitis"/>
+                                </group>
+                                <group col="1">
+                                    <field name="illnesses_high_fever"/>
+                                    <field name="accidents"/>
+                                    <field name="emotional_trauma"/>
+                                    <field name="postnatal_others" widget="text" class="compact-text"
+                                           placeholder="Other postnatal details..."/>
+                                </group>
+                            </group>
+                        </group>
+
+                        <!-- Development History Section -->
+                        <group string="Development History" col="4" colspan="4">
+                            <group string="(2) Development Milestones" col="2" colspan="2">
+                                <field name="dev_head_control"/>
+                                <field name="dev_turning_over"/>
+                                <field name="dev_sitting"/>
+                                <field name="dev_crawling"/>
+                                <field name="dev_walking"/>
+                                <field name="dev_bowel_bladder"/>
+                                <field name="dev_feeds_himself"/>
+                                <field name="dev_dresses_himself"/>
+                            </group>
+
+                            <group string="(3) Motor Control" col="2" colspan="2">
+                                <separator string="(1) Gross Motor Dysfunction"/>
+                                <field name="gross_motor_dysfunction"/>
+                                <field name="paralysis_weakness"/>
+                                <field name="limping"/>
+                                <field name="toe_walking"/>
+                                <field name="stiffness"/>
+                                <field name="dragging_foot"/>
+                                <separator string="(2) Fine Motor Control"/>
+                                <field name="fine_motor_grasping"/>
+                                <field name="fine_motor_holding"/>
+                                <field name="fine_motor_tracing"/>
+                                <field name="fine_motor_drawing"/>
+                            </group>
+
+                            <br/>
+                            <br/>
+
+                            <group string="(4) Handedness" col="2" colspan="2">
+                                <field name="handedness" widget="radio" options="{'horizontal': false}"/>
+                            </group>
+
+                            <group string="(5) Psychomotor Behavior" col="2" colspan="2">
+                                <field name="psycho_tremors"/>
+                                <field name="psycho_overflow"/>
+                                <field name="psycho_tic"/>
+                                <field name="psycho_extraneous"/>
+                            </group>
+
+                            <br/>
+                            <br/>
+
+                            <group string="(6) Examination of Speech Mechanism" col="2" colspan="2">
+                                <field name="exam_lips" widget="text" class="compact-text"
+                                       placeholder="Lips structure..."/>
+                                <field name="exam_teeth" widget="text" class="compact-text"
+                                       placeholder="Teeth details..."/>
+                                <field name="exam_tongue" widget="text" class="compact-text"
+                                       placeholder="Tongue details..."/>
+                                <field name="exam_hard_soft_plate" widget="text" class="compact-text"
+                                       placeholder="Hard/soft plate..."/>
+                                <field name="exam_uvula" widget="text" class="compact-text"
+                                       placeholder="Uvula details..."/>
+                                <field name="exam_jaws" widget="text" class="compact-text"
+                                       placeholder="Jaws details..."/>
+                            </group>
+
+                            <group string="(7) Sensory Development" col="2" colspan="2">
+                                <field name="sensory_hearing" widget="text" class="compact-text"
+                                       placeholder="Hearing assessment..."/>
+                                <field name="sensory_vision" widget="text" class="compact-text"
+                                       placeholder="Vision assessment..."/>
+                            </group>
+                        </group>
+
+                        <!-- Social Maturity and Language Development -->
+                        <group string="Social and Language Development" col="4" colspan="4">
+                            <group string="(8) Social Maturity and Emotional Stability" col="3" colspan="2">
+                                <group col="1">
+                                    <field name="social_recognizes_parents"/>
+                                    <field name="social_refuses_strangers"/>
+                                    <field name="social_eye_contact"/>
+                                    <field name="social_play_alone"/>
+                                    <field name="social_parallel_play"/>
+                                    <field name="social_peers_elders"/>
+                                </group>
+                                <group col="1">
+                                    <field name="social_looks_after"/>
+                                    <field name="social_play_pets"/>
+                                    <field name="social_quarrelsome"/>
+                                    <field name="social_temper"/>
+                                    <field name="social_engrossed"/>
+                                    <field name="social_shifts_frequently"/>
+                                </group>
+                                <group col="1">
+                                    <field name="social_irritable"/>
+                                    <field name="social_distractive"/>
+                                    <field name="social_aggressive"/>
+                                    <field name="social_withdrawn"/>
+                                    <field name="social_restless"/>
+                                    <field name="social_bizarre_movements"/>
+                                </group>
+
+                                <group col="3" colspan="2">
+                                    <field name="social_others" widget="text" class="compact-text"
+                                           placeholder="Other behavioral notes..."/>
+                                </group>
+
+                            </group>
+
+                            <group string="(9) Language Development" col="2" colspan="2">
+                                <field name="lang_babbling"/>
+                                <field name="lang_first_word"/>
+                                <field name="lang_first_sentence"/>
+                                <field name="lang_receptive" widget="text" class="compact-text"
+                                       placeholder="Receptive language..."/>
+                                <field name="lang_expressive" widget="text" class="compact-text"
+                                       placeholder="Expressive language..."/>
+                            </group>
+                        </group>
+
+                        <!-- Additional Information and Sensory Input -->
+                        <group string="Additional Information and Sensory Input" col="4" colspan="4">
+                            <group string="Additional Information" col="2" colspan="2">
+                                <field name="misarticulations" widget="text" class="compact-text"
+                                       placeholder="Misarticulations..."/>
+                                <field name="exposure_languages" widget="text" class="compact-text"
+                                       placeholder="Languages exposed..."/>
+                                <field name="speech_stimulation_home" widget="text" class="compact-text"
+                                       placeholder="Speech stimulation..."/>
+                                <field name="educational_background" widget="text" class="compact-text"
+                                       placeholder="Educational background..."/>
+                            </group>
+
+                            <group string="Sensory Input" col="2" colspan="2">
+                                <field name="sensory_tactile" widget="text" class="compact-text"
+                                       placeholder="Tactile response..."/>
+                                <field name="sensory_visual" widget="text" class="compact-text"
+                                       placeholder="Visual response..."/>
+                                <field name="sensory_alfactory" widget="text" class="compact-text"
+                                       placeholder="Olfactory response..."/>
+                                <field name="sensory_gustatory" widget="text" class="compact-text"
+                                       placeholder="Gustatory response..."/>
+                                <field name="sensory_vestibular" widget="text" class="compact-text"
+                                       placeholder="Vestibular response..."/>
+                                <field name="sensory_proprioceptive" widget="text" class="compact-text"
+                                       placeholder="Proprioceptive response..."/>
+                                <field name="sensory_auditory" widget="text" class="compact-text"
+                                       placeholder="Auditory response..."/>
+                            </group>
+                        </group>
+
+                        <!-- Summary and Diagnosis -->
+                        <separator string="Summary and Diagnosis"/>
+                        <group col="1" colspan="4">
+                            <field name="summary_findings" widget="text" class="compact-text"
+                                   placeholder="Summary of findings..." nolabel="1"/>
+                            <field name="provisional_diagnosis" widget="text" class="compact-text"
+                                   placeholder="Provisional diagnosis..." nolabel="1"/>
+                            <field name="recommendations" widget="text" class="compact-text"
+                                   placeholder="Recommendations..." nolabel="1"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+
+
+            <xpath expr="//notebook/page[@name='history']" position="after">
+                <page name="note_feedback" string="Note">
+                    <group>
+                        <field name="notes" string="Feedback" placeholder="Write feedback here..."/>
+                    </group>
+                </page>
+            </xpath>
+
+            <xpath expr="//group/group/field[@name='company_id']" position="after">
+                <field name="date" string="Speechtherapy Date"/>
+                <field name="physiotherapist_id"/>
+            </xpath>
+
+            <xpath expr="//page[@name='physiotherapy_info']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//page[@name='lowerlimb_info']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//page[@name='upperlimb_info']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//page[@name='hand_info']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//page[@name='physiotherapy_history']" position="attributes">
+                <attribute name="string">Speechtherapy History</attribute>
+            </xpath>
+
+            <xpath expr="//page[@name='physiotherapy_history']/group/field[@name='physiotherapy_history']"
+                   position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//page[@name='physiotherapy_history']" position="inside">
+                <field name="speech_therapy_history" widget="html" readonly="1"/>
+            </xpath>
+
+            <xpath expr="//page[@name='history']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+        </field>
+    </record>
+
+    <record id="hms_physiotherapy_treeview_inherit_extension" model="ir.ui.view">
+        <field name="name">dsl.physiotherapy.tree.inherit.extension</field>
+        <field name="model">dsl.physiotherapy</field>
+        <field name="inherit_id" ref="dsl_hms_physiotherapy.hms_physiotherapy_treeview"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='date']" position="attributes">
+                <attribute name="string">Speechtherapy Date</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='years_sex']" position="after">
+                <field name="speechtherapy_type_id"/>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>

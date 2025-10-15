@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="assets_backend" name="dsl_physio_dashboard assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/dsl_hms_physiotherapy_extension/static/src/js/dashboard.js"/>
+
+        </xpath>
+    </template>
+
+    <template id="assets_backend_timer" name="SessionTimer" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/dsl_hms_physiotherapy_extension/static/src/js/session_timer.js"/>
+        </xpath>
+    </template>
+</odoo>

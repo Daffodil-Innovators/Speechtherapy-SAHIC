@@ -1,0 +1,235 @@
+<templates xml:space="preserve">
+    <t t-name="dsl_physio_dashboard.Dashboard">
+        <div class="o_dsl_physio_dashboard o_form_view" style="padding: 15px;">
+
+            <!-- ===== Header ===== -->
+            <div class="o_physio_header">
+                <h1 class="text-center mt-3 mb-2">Speech Therapy Management Dashboard</h1>
+            </div>
+
+            <!-- ===== Row 1: Search & Filters (Only Date Filter) ===== -->
+            <div class="container mt-3 mb-3">
+                <form class="js-search-form">
+                    <div class="row align-items-end justify-content-center">
+                        <!-- From Date -->
+                        <div class="col-md-3">
+                            <label class="form-label">From Date</label>
+                            <input type="date" class="form-control js-date-from"
+                                   t-att-value="(search and search.date_from) or ''"/>
+                        </div>
+
+                        <!-- To Date -->
+                        <div class="col-md-3">
+                            <label class="form-label">To Date</label>
+                            <input type="date" class="form-control js-date-to"
+                                   t-att-value="(search and search.date_to) or ''"/>
+                        </div>
+
+                        <!-- Search Button -->
+                        <div class="col-md-2">
+                            <button type="submit" class="btn btn-primary js-search-btn w-100">
+                                <i class="fa fa-search mr-1"/>
+                                Search
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- ===== Row 2: My Statistics (Physiotherapist Only) ===== -->
+            <t t-if="metrics and metrics.is_physio">
+                <div class="container mt-2 mb-3">
+                    <h5 class="mb-2">My Statistics</h5>
+                    <div class="row">
+                        <!-- My Today -->
+                        <div class="col-md-4 mb-3">
+                            <div class="card text-white o_card physio-card">
+                                <div class="card-body d-flex align-items-center justify-content-between bg-info">
+                                    <div>
+                                        <div class="h1 mb-0 text-white" t-esc="(metrics and metrics.my_today) or 0"/>
+                                        <div class="lead text-white">My Speechtherapy Today</div>
+                                    </div>
+                                    <i class="fa fa-user-md fa-3x opacity-100 text-white"/>
+                                </div>
+                                <div class="card-footer d-flex justify-content-between align-items-center">
+                                    <a href="javascript:void(0)" class="js-my-today text-primary">View Details</a>
+                                    <a href="javascript:void(0)" class="js-my-today text-primary"><i class="fa fa-ellipsis-h text-muted"/></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- My Total -->
+                        <div class="col-md-4 mb-3">
+                            <div class="card text-white o_card physio-card">
+                                <div class="card-body d-flex align-items-center justify-content-between bg-success">
+                                    <div>
+                                        <div class="h1 mb-0 text-white" t-esc="(metrics and metrics.my_total) or 0"/>
+                                        <div class="lead text-white">My Total Sessions</div>
+                                    </div>
+                                    <i class="fa fa-heartbeat fa-3x opacity-100 text-white"/>
+                                </div>
+                                <div class="card-footer d-flex justify-content-between align-items-center">
+                                    <a href="javascript:void(0)" class="js-my-total text-primary">View Details</a>
+                                    <a href="javascript:void(0)" class="js-my-total text-primary"><i class="fa fa-ellipsis-h text-muted"/></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- My Collection -->
+                        <div class="col-md-4 mb-3">
+                            <div class="card text-white o_card physio-card">
+                                <div class="card-body d-flex align-items-center justify-content-between bg-warning">
+                                    <div>
+                                        <div class="h1 mb-0 text-white"
+                                             t-esc="metrics and metrics.my_collected ? metrics.my_collected.toFixed(2) : '0.00'"/>
+                                        <div class="lead text-white">My Collections</div>
+                                    </div>
+                                    <i class="fa fa-money fa-3x opacity-100 text-white"/>
+                                </div>
+                                <div class="card-footer d-flex justify-content-between align-items-center">
+                                    <a href="javascript:void(0)" class="js-my-collection text-primary">View Details</a>
+                                    <a href="javascript:void(0)" class="js-my-collection text-primary"><i class="fa fa-ellipsis-h text-muted"/></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+
+            <!-- ===== Row 3: Global Statistics ===== -->
+            <div class="container mt-2 mb-3">
+                <h5 class="mb-2">Global Statistics</h5>
+                <div class="row">
+                    <!-- Today -->
+                    <div class="col-md-4 mb-3">
+                        <div class="card text-white o_card physio-card">
+                            <div class="card-body d-flex align-items-center justify-content-between bg-danger">
+                                <div>
+                                    <div class="h1 mb-0 text-white" t-esc="(metrics and metrics.global_today) or 0"/>
+                                    <div class="lead text-white">Total Speechtherapy Today</div>
+                                </div>
+                                    <i class="fa fa-user-md fa-3x opacity-100 text-white"/>
+                            </div>
+                            <div class="card-footer d-flex justify-content-between align-items-center">
+                                <a href="javascript:void(0)" class="js-global-today text-primary">View Details</a>
+                                <a href="javascript:void(0)" class="js-global-today text-primary"><i class="fa fa-ellipsis-h text-muted"/></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- All Time -->
+                    <div class="col-md-4 mb-3">
+                        <div class="card text-white o_card physio-card">
+                            <div class="card-body d-flex align-items-center justify-content-between bg-primary">
+                                <div>
+                                    <div class="h1 mb-0 text-white" t-esc="(metrics and metrics.global_total) or 0"/>
+                                    <div class="lead text-white">Total Speechtherapy All Time</div>
+                                </div>
+                                    <i class="fa fa-heartbeat fa-3x opacity-100 text-white"/>
+                            </div>
+                            <div class="card-footer d-flex justify-content-between align-items-center">
+                                <a href="javascript:void(0)" class="js-global-total text-primary">View Details</a>
+                                <a href="javascript:void(0)" class="js-global-total text-primary"><i class="fa fa-ellipsis-h text-muted"/></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Global Collection -->
+                    <div class="col-md-4 mb-3">
+                        <div class="card text-white o_card physio-card">
+                            <div class="card-body d-flex align-items-center justify-content-between bg-info">
+                                <div>
+                                    <div class="h1 mb-0 text-white"
+                                         t-esc="metrics and metrics.global_collected ? metrics.global_collected.toFixed(2) : '0.00'"/>
+                                    <div class="lead text-white">Total Collections</div>
+                                </div>
+                                    <i class="fa fa-money fa-3x opacity-100 text-white"/>
+                            </div>
+                            <div class="card-footer d-flex justify-content-between align-items-center">
+                                <a href="javascript:void(0)" class="js-global-collection text-primary">View Details</a>
+                                <a href="javascript:void(0)" class="js-global-collection text-primary"><i class="fa fa-ellipsis-h text-muted"/></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== Row 4: Physiotherapist Summary ===== -->
+            <div class="container mt-4">
+                <h5 class="mb-2">Speechtherapist Summary</h5>
+                <div class="table-responsive">
+                    <table class="table table-sm table-striped table-hover">
+                        <thead class="thead-light">
+                            <tr>
+                                <th width="35%">Speechtherapist</th>
+                                <th width="15%" class="text-right">Sessions</th>
+                                <th width="15%" class="text-right">Patients</th>
+                                <th width="17%" class="text-right">Amount</th>
+                                <th width="18%" class="text-right">Collected</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-if="results and results.rows and results.rows.length">
+                                <t t-foreach="results.rows" t-as="r" t-key="r_index">
+                                    <tr>
+                                        <td t-esc="r.physiotherapist_name"/>
+                                        <td class="text-right" t-esc="r.session_count or 0"/>
+                                        <td class="text-right" t-esc="r.patient_count or 0"/>
+                                        <td class="text-right" t-esc="(r.total_amount || 0.0).toFixed(2)"/>
+                                        <td class="text-right" t-esc="(r.collected_amount || 0.0).toFixed(2)"/>
+                                    </tr>
+                                </t>
+                            </t>
+                            <t t-else="">
+                                <tr>
+                                    <td colspan="5" class="text-center text-muted">No results found for the selected date range.</td>
+                                </tr>
+                            </t>
+                        </tbody>
+                        <tfoot>
+                            <t t-if="results and results.totals">
+                                <tr class="font-weight-bold">
+                                    <td class="text-right">Totals</td>
+                                    <td class="text-right" t-esc="results.totals.total_sessions or 0"/>
+                                    <td class="text-right" t-esc="results.totals.total_patients or 0"/>
+                                    <td class="text-right" t-esc="(results.totals.total_amount || 0.0).toFixed(2)"/>
+                                    <td class="text-right" t-esc="(results.totals.total_collected || 0.0).toFixed(2)"/>
+                                </tr>
+                            </t>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+
+            <!-- ===== CSS ===== -->
+            <style>
+                .physio-card .card-body { min-height: 110px; border-radius: .25rem .25rem 0 0; }
+                .physio-card .card-footer { background-color: #fff; }
+                .physio-card .opacity-100 { opacity: 1; }
+                .o_dsl_physio_dashboard .bg-info { background-color: #17a2b8 !important; }
+                .o_dsl_physio_dashboard .bg-success { background-color: #28a745 !important; }
+                .o_dsl_physio_dashboard .bg-warning { background-color: #f0ad4e !important; }
+                .o_dsl_physio_dashboard .bg-danger { background-color: #dc3545 !important; }
+                .o_dsl_physio_dashboard .bg-primary { background-color: #6f42c1 !important; }
+                .o_dsl_physio_dashboard .bg-secondary { background-color: #6c757d !important; }
+
+                @media (min-width: 1200px) {
+                    .o_dsl_physio_dashboard.o_form_view {
+                        display: block !important;
+                        flex-flow: unset !important;
+                        height: auto !important;
+                    }
+                    .o_dsl_physio_dashboard .physio-card {
+                        min-width: 100% !important;
+                        font-size: 1.1rem;
+                    }
+                    .o_dsl_physio_dashboard .container {
+                        max-width: 100% !important;
+                        padding-left: 10px;
+                        padding-right: 10px;
+                    }
+                }
+            </style>
+        </div>
+    </t>
+</templates>

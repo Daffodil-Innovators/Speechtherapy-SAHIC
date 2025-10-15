@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="next_patient_view_inherit" inherit_id="dsl_hms_next_patient_screen.next_patient_view">
+        <xpath expr="//t[@t-set='in_records']" position="replace">
+            <t t-set="in_records" t-value="records.filtered(lambda rec: rec.state in ['in_consultation', 'in_progress'])"/>
+        </xpath>
+        <xpath expr="//t[@t-set='waiting_records']" position="replace">
+            <t t-set="waiting_records" t-value="records.filtered(lambda rec: rec.state not in ['in_consultation', 'in_progress'])"/>
+        </xpath>
+    </template>
+</odoo>

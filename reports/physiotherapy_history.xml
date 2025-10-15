@@ -1,0 +1,126 @@
+<odoo>
+    <template id="report_dsl_physiotherapy_history_document">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="dsl_hms_physiotherapy_extension._report_physio_history_body">
+                    <t t-set="o" t-value="o"/>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <template id="_report_physio_history_body">
+        <t t-set="company" t-value="o.company_id"/>
+
+        <!-- header -->
+        <table class="header-grid">
+            <tr>
+                <td class="col-left">
+                    <img t-if="company.logo"
+                         t-att-src="'data:image/png;base64,%s' % (company.logo.decode() if isinstance(company.logo, bytes) else company.logo)"
+                         style="max-height:120px; max-width:100%; display:block; margin:0 auto;"/>
+                </td>
+                <td class="col-center text-center">
+                    <h4 class="mb-1">
+                        <t t-esc="company.name"/>
+                    </h4>
+                </td>
+                <td class="col-right text-right">
+                    <small t-if="company.partner_id and company.partner_id.contact_address"
+                           class="d-block pre-line">
+                        <t t-esc="company.partner_id.contact_address"/>
+                    </small>
+                </td>
+            </tr>
+        </table>
+        <hr/>
+
+        <!-- Meta section -->
+        <table class="meta-grid table table-sm table-borderless">
+            <tbody>
+                <tr>
+                    <td>
+                        <table class="table table-sm table-borderless mb-0">
+                            <tr t-if="o.code">
+                                <td class="label-cell">Reg. No.:</td>
+                                <td class="value-cell">
+                                    <strong>
+                                        <t t-esc="o.code"/>
+                                    </strong>
+                                </td>
+                            </tr>
+                            <tr t-if="o.patient_id">
+                                <td class="label-cell">Name:</td>
+                                <td class="value-cell">
+                                    <strong>
+                                        <t t-esc="o.patient_id.display_name"/>
+                                    </strong>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <table class="table table-sm table-borderless mb-0 pull-right">
+                            <tr t-if="o.date">
+                                <td class="label-cell">Date:</td>
+                                <td class="value-cell">
+                                    <strong>
+                                        <span t-field="o.date" t-options="{'widget': 'date'}"/>
+                                    </strong>
+                                </td>
+                            </tr>
+                            <tr t-if="o.physiotherapist_id">
+                                <td class="label-cell">Physiotherapist:</td>
+                                <td class="value-cell">
+                                    <strong>
+                                        <t t-esc="o.physiotherapist_id.name"/>
+                                    </strong>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <!-- Physiotherapy History -->
+        <t t-if="o.physiotherapy_history">
+            <div class="mt-3">
+                <h6 class="mb-2">Physiotherapy History</h6>
+                <div t-raw="o.physiotherapy_history"/>
+            </div>
+        </t>
+
+        <!-- Signature -->
+        <div class="signature-block">
+            <div class="signature-line"></div>
+            <div class="sig-label">Signature</div>
+        </div>
+
+        <!-- CSS -->
+        <style type="text/css">
+            .header-grid{ width:100%; border-collapse:collapse; table-layout:fixed; margin-bottom:.5rem;}
+            .header-grid td{ vertical-align: middle; }
+            .header-grid .col-left{ width:18%; text-align:center; }
+            .header-grid .col-center{ width:54%; }
+            .header-grid .col-right{ width:28%; }
+            .text-center{text-align:center;} .text-right{text-align:right;}
+            .mb-0{margin-bottom:0!important;} .mb-1{margin-bottom:.25rem!important;}
+            .mb-2{margin-bottom:.5rem!important;} .mt-3{margin-top:1rem!important;}
+            .d-block{display:block!important;} .pull-right{margin-left:auto;}
+            .pre-line{white-space:pre-line;}
+            .table{width:100%; border-collapse:collapse; margin-bottom:1rem; color:#212529;}
+            .table th,.table td{padding:.5rem; vertical-align:top; border:1px solid #dee2e6;}
+            .table-sm th,.table-sm td{padding:.3rem;}
+            .table-borderless th,.table-borderless td{border:0!important;}
+            .thead-light th{background-color:#f8f9fa; font-weight:600;}
+            hr{border:0; border-top:1px solid #adb5bd;}
+            .label-cell{ font-weight: normal; white-space:nowrap; width:90px; padding-right:.5rem; text-align:left; }
+            .value-cell{ white-space:nowrap; text-align:left; }
+            .signature-block{ width:40%; margin-left:auto; margin-top:3rem; text-align:center; }
+            .signature-line{ height:0; border-top:1px solid #343a40; margin-top:4rem; }
+            .sig-label{ font-size:12px; margin-top:.25rem; }
+        </style>
+    </template>
+</odoo>

@@ -1,0 +1,87 @@
+<odoo>
+
+
+    <template id="report_dsl_physiotherapy_summary_document">
+        <t t-call="web.html_container">
+            <t t-call="dsl_hms_physiotherapy_extension._report_physio_summary_body"/>
+        </t>
+    </template>
+
+    <template id="_report_physio_summary_body">
+        <t t-set="company" t-value="docs and docs[0].company_id or ''"/>
+
+        <!-- Header -->
+        <table class="header-grid">
+            <tr>
+                <td class="col-left">
+                    <img t-if="company.logo"
+                         t-att-src="'data:image/png;base64,%s' % (company.logo.decode() if isinstance(company.logo, bytes) else company.logo)"
+                         style="max-height:120px; max-width:100%; display:block; margin:0 auto;"/>
+                </td>
+                <td class="col-center text-center">
+                    <h4 class="mb-1">
+                        <t t-esc="company.name"/>
+                    </h4>
+                </td>
+                <td class="col-right text-right">
+                    <small t-if="company.partner_id and company.partner_id.contact_address"
+                           class="d-block pre-line">
+                        <t t-esc="company.partner_id.contact_address"/>
+                    </small>
+                </td>
+            </tr>
+        </table>
+        <hr/>
+
+        <!-- Table -->
+        <h4 class="mb-2 text-center">Speechtherapy Summary</h4>
+        <table class="table table-sm table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th>Reg. No.</th>
+                    <th>Patient Name</th>
+                    <th>Total Visit</th>
+                    <th>Date</th>
+                    <th>Speechtherapist</th>
+                    <th>State</th>
+                </tr>
+            </thead>
+            <tbody>
+                <t t-foreach="docs" t-as="o">
+                    <tr>
+                        <td>
+                            <t t-esc="o.code"/>
+                        </td>
+                        <td>
+                            <t t-esc="o.patient_id.display_name"/>
+                        </td>
+                        <td>
+                            <t t-esc="o.visit_count"/>
+                        </td>
+                        <td>
+                            <span t-field="o.date" t-options="{'widget': 'date'}"/>
+                        </td>
+                        <td>
+                            <t t-esc="o.physiotherapist_id.name"/>
+                        </td>
+                        <td>
+                            <t t-esc="dict(o._fields['state'].selection).get(o.state)"/>
+                        </td>
+                    </tr>
+                </t>
+            </tbody>
+        </table>
+
+        <style>
+            .header-grid{width:100%;border-collapse:collapse;table-layout:fixed;margin-bottom:.5rem;}
+            .header-grid td{vertical-align:middle;}
+            .col-left{width:18%;text-align:center;}
+            .col-center{width:54%;}
+            .col-right{width:28%;}
+            .text-center{text-align:center;}
+            .table{width:100%;border-collapse:collapse;margin-bottom:1rem;color:#212529;}
+            .table th,.table td{padding:.5rem;vertical-align:top;border:1px solid #dee2e6;}
+            .thead-light th{background-color:#f8f9fa;font-weight:600;}
+        </style>
+    </template>
+</odoo>

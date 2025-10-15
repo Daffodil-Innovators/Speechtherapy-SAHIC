@@ -1,0 +1,29 @@
+<odoo>
+    <record id="view_physio_report_wizard" model="ir.ui.view">
+        <field name="name">physiotherapy.report.wizard.form</field>
+        <field name="model">physiotherapy.report.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Speechtherapy Summary Report">
+                <group>
+                    <group col="2">
+                        <field name="from_date"/>
+                        <field name="to_date"/>
+                    </group>
+                    <group>
+                        <field name="state" widget="radio" />
+                    </group>
+                </group>
+                <footer>
+                    <button string="Print" type="object" name="action_print_report" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <act_window id="action_physio_report_wizard"
+                name="Speechtherapy Summary Report"
+                res_model="physiotherapy.report.wizard"
+                view_mode="form"
+                target="new"/>
+</odoo>

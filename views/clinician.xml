@@ -1,0 +1,158 @@
+<odoo>
+    
+    <!-- Tree View -->
+    <record id="view_clinician_tree" model="ir.ui.view">
+        <field name="name">dsl.clinician.tree</field>
+        <field name="model">dsl.clinician</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="code"/>
+                <field name="name"/>
+                <field name="designation"/>
+                <field name="phone"/>
+                <field name="email"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View -->
+    <record id="view_clinician_form" model="ir.ui.view">
+        <field name="name">dsl.clinician.form</field>
+        <field name="model">dsl.clinician</field>
+        <field name="arch" type="xml">
+            <form string="Clinician">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                    </div>
+                    
+                    <!-- Avatar Image -->
+                    <field name="image_1920" widget="image" class="oe_avatar" options="{'preview_image': 'image_128'}"/>
+                    
+                    <!-- Archived Ribbon -->
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
+                    
+                    <!-- Title Section -->
+                    <div class="oe_title">
+                        <label for="name" string="Name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="name" placeholder="Clinician's Name"/>
+                        </h1>
+                        <div>
+                            <label for="degree" string="Education" class="oe_edit_only"/>
+                            <h3>
+                                <field name="degree" placeholder="e.g." style="width: 10%"/>
+                            </h3>
+                        </div>
+                    </div>
+                    
+                    <!-- Main Info Group -->
+                    <group>
+                        <group>
+                            <field name="code" string="Clinician ID" readonly="1"/>
+                            <field name="designation"/>
+                            <field name="user_id"/>
+                            <field name="partner_id"/>
+                            <field name="active" invisible="1"/>
+                        </group>
+                        <group>
+                        </group>
+                    </group>
+                    
+                    <!-- Notebook -->
+                    <notebook>
+                        <!-- General Information Page -->
+                        <page string="General Information" name="general_info">
+                            <group>
+                                <group>
+                                    <label for="street" string="Address"/>
+                                    <div>
+                                        <field name="street" placeholder="Street..."/>
+                                        <field name="street2"/>
+                                        <div class="address_format">
+                                            <field name="city" placeholder="City" style="width: 40%"/>
+                                            <field name="state_id" class="oe_no_button" placeholder="State" style="width: 37%" options="{'no_open': True}"/>
+                                            <field name="zip" placeholder="ZIP" style="width: 20%"/>
+                                        </div>
+                                        <field name="country_id" placeholder="Country" class="oe_no_button" options="{'no_open': True}"/>
+                                    </div>
+                                </group>
+                                <group>
+                                    <field name="phone" placeholder="e.g. +880 1XXX-XXXXXX"/>
+                                    <field name="mobile"/>
+                                    <field name="email" widget="email"/>
+                                </group>
+                            </group>
+                        </page>
+                        
+                        <!-- Personal Info Page -->
+                        <page string="Personal Info" name="personal_info">
+                            <group>
+                                <group>
+                                    <field name="signature" widget="signature" options="{'size': [300, 100]}"/>
+                                </group>
+                            </group>
+                        </page>
+                        
+                        <!-- Info Bangla Page -->
+                        <page string="Info Bangla" name="info_bangla">
+                            <group>
+                                <group>
+                                    <field name="name_bangla" placeholder="নাম"/>
+                                    <field name="designation_bangla" placeholder="পদবী"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+                                
+            </form>
+        </field>
+    </record>
+    
+    <record id="view_clinician_kanban" model="ir.ui.view">
+        <field name="name">dsl.clinician.kanban</field>
+        <field name="model">dsl.clinician</field>
+        <field name="arch" type="xml">
+            <kanban string="Clinician">
+                <field name="id"/>
+                <field name="name"/>
+                <field name="image_128"/>
+                <field name="designation"/>
+                <field name="code"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click o_kanban_record_has_image_fill">
+                            <t t-set="placeholder" t-value="'/base/static/img/avatar_grey.png'"/>
+                            <div class="o_kanban_image_fill_left d-none d-md-block" t-attf-style="background-image:url('#{kanban_image('dsl.clinician', 'image_128', record.id.raw_value, placeholder)}')"/>
+                            <div class="oe_kanban_details">
+                                <div class="o_kanban_record_top">
+                                    <strong class="oe_partner_heading"><field name="name"/></strong>
+                                </div>
+                                <ul>
+                                    <li><b>Code:</b> <field name="code"/></li>
+                                    <li t-if="record.designation.raw_value"><b>Designation:</b> <field name="designation"/></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_clinician" model="ir.actions.act_window">
+        <field name="name">Clinician</field>
+        <field name="res_model">dsl.clinician</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+    <record id="seq_clinician" model="ir.sequence">
+        <field name="name">Clinician Sequence</field>
+        <field name="code">dsl.clinician</field>
+        <field name="prefix">CL</field>
+        <field name="padding">3</field>
+        <field name="number_increment">1</field>
+    </record>
+
+</odoo>

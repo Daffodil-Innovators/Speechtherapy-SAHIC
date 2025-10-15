@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <report
+            id="action_report_dsl_physiotherapy"
+            model="dsl.physiotherapy"
+            string="Daily Physiotherapy Report"
+            report_type="qweb-pdf"
+            name="dsl_hms_physiotherapy_extension.report_dsl_physiotherapy_document"
+            file="dsl_hms_physiotherapy_extension.report_dsl_physiotherapy_document"
+            print_report_name="'Physiotherapy_%s' % (object.name or '')"
+    />
+
+    <report
+            id="action_report_dsl_physiotherapy_history"
+            model="dsl.physiotherapy"
+            string="Physiotherapy History Report"
+            report_type="qweb-pdf"
+            name="dsl_hms_physiotherapy_extension.report_dsl_physiotherapy_history_document"
+            file="dsl_hms_physiotherapy_extension.report_dsl_physiotherapy_history_document"
+            print_report_name="'Physiotherapy_History_%s' % (object.name or '')"
+    />
+
+
+    <record id="action_report_dsl_physiotherapy_summary" model="ir.actions.report">
+        <field name="name">Physiotherapy Summary</field>
+        <field name="model">dsl.physiotherapy</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">dsl_hms_physiotherapy_extension.report_dsl_physiotherapy_summary_document</field>
+        <field name="report_file">dsl_hms_physiotherapy_extension.report_dsl_physiotherapy_summary_document</field>
+        <field name="binding_model_id" eval="False"/>
+    </record>
+
+    <report
+            id="action_report_advice_sheet"
+            string="Advice Sheet Report"
+            model="dsl.physiotherapy"
+            report_type="qweb-pdf"
+            file="dsl_hms_physiotherapy_extension.report_advice_sheet"
+            name="dsl_hms_physiotherapy_extension.report_advice_sheet"
+            print_report_name="'AdviceSheetReport_' + (object.name or '')"
+            paperformat="dsl_hms_physiotherapy_extension.paperformat_advice_sheet"
+    />
+
+    <record id="action_report_speech_therapy_general_history" model="ir.actions.report">
+        <field name="name">General History Report</field>
+        <field name="model">dsl.physiotherapy</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">dsl_hms_physiotherapy_extension.report_speech_therapy_general_history_document</field>
+        <field name="report_file">dsl_hms_physiotherapy_extension.report_speech_therapy_general_history_document</field>
+        <field name="binding_model_id" ref="model_dsl_physiotherapy"/>
+        <field name="binding_type">report</field>
+        <field name="paperformat_id" ref="dsl_hms_physiotherapy_extension.paperformat_advice_sheet"/>
+    </record>
+
+
+</odoo>

@@ -1,0 +1,18 @@
+<odoo >
+    <data>
+
+        <!-- Modify the menu items to make them invisible -->
+        <record id="dsl_hms_physiotherapy.hos_physiotherapy_exercise_master" model="ir.ui.menu">
+            <field name="active">False</field>
+        </record>
+
+        <record id="dsl_hms_physiotherapy.hos_hms_physiotherapy_notetemplate" model="ir.ui.menu">
+            <field name="active">False</field>
+        </record>
+
+        <record id="dsl_hms_physiotherapy.hos_hms_physiotherapy_selectionnotetemplate" model="ir.ui.menu">
+            <field name="active">False</field>
+        </record>
+
+    </data>
+</odoo>
