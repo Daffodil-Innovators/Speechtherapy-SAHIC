@@ -3,6 +3,7 @@ from odoo import http
 from odoo.http import request
 from datetime import date
 
+
 class DSLPhysioDashboard(http.Controller):
 
     @http.route('/dsl_physio/dashboard/metrics', type='json', auth='user')
@@ -24,9 +25,9 @@ class DSLPhysioDashboard(http.Controller):
         global_total = model.search_count([])
         global_invoices = model.search([]).mapped('invoice_id')
         global_collected = sum(
-             inv.amount_total if inv.payment_state == 'paid' else 
+            inv.amount_total if inv.payment_state == 'paid' else
             (inv.amount_total - inv.amount_residual) if inv.payment_state == 'partial' else 0
-            for inv in global_invoices 
+            for inv in global_invoices
         )
 
         # ----- My Metrics -----
@@ -36,9 +37,9 @@ class DSLPhysioDashboard(http.Controller):
             my_total = model.search_count([('physiotherapist_id', '=', physio.id)])
             my_invoices = model.search([('physiotherapist_id', '=', physio.id)]).mapped('invoice_id')
             my_collected = sum(
-                 inv.amount_total if inv.payment_state == 'paid' else 
-            (inv.amount_total - inv.amount_residual) if inv.payment_state == 'partial' else 0
-            for inv in my_invoices 
+                inv.amount_total if inv.payment_state == 'paid' else
+                (inv.amount_total - inv.amount_residual) if inv.payment_state == 'partial' else 0
+                for inv in my_invoices
             )
 
         return {
@@ -93,8 +94,9 @@ class DSLPhysioDashboard(http.Controller):
                 if record.invoice_id.payment_state == 'paid':
                     physio_data[physio_key]['collected_amount'] += record.invoice_id.amount_total
                 elif record.invoice_id.payment_state == 'partial':
-                    physio_data[physio_key]['collected_amount'] += (record.invoice_id.amount_total - record.invoice_id.amount_residual)
-                    
+                    physio_data[physio_key]['collected_amount'] += (
+                                record.invoice_id.amount_total - record.invoice_id.amount_residual)
+
         for physio_key in physio_data:
             physio_data[physio_key]['patient_count'] = len(physio_data[physio_key]['patient_count'])
 

@@ -145,10 +145,18 @@
                         <t t-foreach="o.lower_data_ids" t-as="l">
                             <t t-if="l.right_val or l.left_val or l.sensory_val">
                                 <tr>
-                                    <td><t t-esc="l.name or ''"/></td>
-                                    <td><t t-esc="l.right_val or ''"/></td>
-                                    <td><t t-esc="l.left_val or ''"/></td>
-                                    <td><t t-esc="l.sensory_val or ''"/></td>
+                                    <td>
+                                        <t t-esc="l.name or ''"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="l.right_val or ''"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="l.left_val or ''"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="l.sensory_val or ''"/>
+                                    </td>
                                 </tr>
                             </t>
                         </t>
@@ -180,10 +188,18 @@
                         <t t-foreach="o.upper_data_ids" t-as="u">
                             <t t-if="u.right_val or u.left_val or u.sensory_val">
                                 <tr>
-                                    <td><t t-esc="u.name or ''"/></td>
-                                    <td><t t-esc="u.right_val or ''"/></td>
-                                    <td><t t-esc="u.left_val or ''"/></td>
-                                    <td><t t-esc="u.sensory_val or ''"/></td>
+                                    <td>
+                                        <t t-esc="u.name or ''"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="u.right_val or ''"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="u.left_val or ''"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="u.sensory_val or ''"/>
+                                    </td>
                                 </tr>
                             </t>
                         </t>
@@ -215,10 +231,18 @@
                         <t t-foreach="o.hand_data_ids" t-as="h">
                             <t t-if="h.right_val or h.left_val or h.sensory_val">
                                 <tr>
-                                    <td><t t-esc="h.name or ''"/></td>
-                                    <td><t t-esc="h.right_val or ''"/></td>
-                                    <td><t t-esc="h.left_val or ''"/></td>
-                                    <td><t t-esc="h.sensory_val or ''"/></td>
+                                    <td>
+                                        <t t-esc="h.name or ''"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="h.right_val or ''"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="h.left_val or ''"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="h.sensory_val or ''"/>
+                                    </td>
                                 </tr>
                             </t>
                         </t>
@@ -250,9 +274,15 @@
                         <tbody>
                             <t t-foreach="o.lower_seldata_ids" t-as="ls">
                                 <tr>
-                                    <td><t t-esc="ls.name or ''"/></td>
-                                    <td><t t-esc="ls.right_val or ''"/></td>
-                                    <td><t t-esc="ls.left_val or ''"/></td>
+                                    <td>
+                                        <t t-esc="ls.name or ''"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="ls.right_val or ''"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="ls.left_val or ''"/>
+                                    </td>
                                 </tr>
                             </t>
                         </tbody>
@@ -277,9 +307,15 @@
                         <tbody>
                             <t t-foreach="o.upper_seldata_ids" t-as="us">
                                 <tr>
-                                    <td><t t-esc="us.name or ''"/></td>
-                                    <td><t t-esc="us.right_val or ''"/></td>
-                                    <td><t t-esc="us.left_val or ''"/></td>
+                                    <td>
+                                        <t t-esc="us.name or ''"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="us.right_val or ''"/>
+                                    </td>
+                                    <td>
+                                        <t t-esc="us.left_val or ''"/>
+                                    </td>
                                 </tr>
                             </t>
                         </tbody>

@@ -1,9 +1,10 @@
-<?xml version="1.0"?>
+
 <odoo>
     <record id="view_physiotherapy_form_inherit_ext" model="ir.ui.view">
         <field name="name">dsl.physiotherapy.form.inherit.ext</field>
         <field name="model">dsl.physiotherapy</field>
         <field name="inherit_id" ref="dsl_hms_physiotherapy.view_physiotherapy_form"/>
+        <field name="priority">20</field> <!-- Increase priority to ensure override -->
         <field name="arch" type="xml">
 
             <!-- Replace the entire header -->
@@ -19,20 +20,20 @@
                             type="object" states="doctor_consultation"
                             class="btn-success"/>
 
-                    <!-- Step 3: Reception creates invoice (only if no invoice exists and therapy type is selected) -->
+                    <!-- Step 3: Reception creates invoice (only in payment_pending, hidden if invoice exists, no_invoice is checked, or no therapy type) -->
                     <button name="action_create_invoice_and_pay" string="Create Invoice"
-                            type="object" states="payment_pending"
-                            attrs="{'invisible': ['|', '|',
-                              ('state','!=','payment_pending'),
-                              ('invoice_id','!=',False),
-                              ('speechtherapy_type_id','=',False)]}"
+                            type="object"
+                            attrs="{'invisible': ['|', '|', '|',
+                              ('state', '!=', 'payment_pending'),
+                              ('no_invoice', '=', True),
+                              ('invoice_id', '!=', False),
+                              ('speechtherapy_type_id', '=', False)]}"
                             class="btn-primary"/>
 
-                    <!-- Step 4: Add to queue (only if invoice is paid and queue not generated yet) -->
+                    <!-- Step 4: Add to queue (if no_invoice is checked or invoice exists) -->
                     <button name="action_add_to_queue" string="Add to Queue"
-                            type="object"
-                            states="payment_pending"
-                            attrs="{'invisible': ['|', ('invoice_payment_state', '!=', 'paid'), ('queue_number', '>', 0)]}"
+                            type="object" states="payment_pending"
+                            attrs="{'invisible': ['|', ('no_invoice', '=', False), ('queue_number', '>', 0)]}"
                             class="btn-info"/>
 
                     <!-- Step 5: Start therapy session -->
@@ -65,21 +66,26 @@
                 <field name="speechtherapy_type_id"
                        attrs="{'readonly': [('state', 'not in', ['doctor_consultation'])],
                                'required': [('state', '=', 'doctor_consultation')]}"/>
+                <field name="no_invoice"
+                       attrs="{'invisible': [('state', 'not in', ['payment_pending', 'in_queue', 'in_progress', 'done'])],
+                               'readonly': [('state', '!=', 'payment_pending')]}"/>
+                <field name="queue_number" readonly="1"
+                       attrs="{'invisible': [('queue_number', '=', 0)]}"/>
+            </field>
+
+            <field name="clinician_id" position="after">
                 <field name="queue_number" readonly="1"
                        attrs="{'invisible': [('queue_number', '=', 0)]}"/>
             </field>
 
             <!-- Add session timing fields -->
-            <field name="gender" position="after">
+            <field name="clinician_id" position="after">
                 <field name="session_start_time" readonly="1"
                        attrs="{'invisible': [('state', 'not in', ['in_progress','done'])]}"/>
-
                 <field name="session_end_time" readonly="1"
                        attrs="{'invisible': [('state', '!=', 'done')]}"/>
-
                 <field name="session_duration_display" readonly="1"
                        attrs="{'invisible': [('state', '!=', 'done')]}"/>
-
                 <field name="current_session_time" widget="session_timer"
                        attrs="{'invisible': [('state', '!=', 'in_progress')]}"
                        readonly="1"/>

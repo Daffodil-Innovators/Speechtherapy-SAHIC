@@ -1,11 +1,12 @@
 from odoo import api, fields, models, _
 
+
 class SpeechTherapyType(models.Model):
     _name = "speech.therapy.type"
     _description = "Speech Therapy Type"
 
     name = fields.Char(string="Therapy Name", required=True)
-    price = fields.Float(string="Price", required=True)  
+    price = fields.Float(string="Price", required=True)
     note = fields.Char(string="Note")
     active = fields.Boolean(default=True)
     product_id = fields.Many2one(
@@ -22,7 +23,7 @@ class SpeechTherapyType(models.Model):
                 'name': rec.name,
                 'list_price': rec.price,
                 'type': 'service',
-                'taxes_id': [(5, 0, 0)],  
+                'taxes_id': [(5, 0, 0)],
             })
             rec.product_id = product.id
         return rec
@@ -35,7 +36,7 @@ class SpeechTherapyType(models.Model):
                     'name': rec.name,
                     'list_price': rec.price,
                     'type': 'service',
-                    'taxes_id': [(5, 0, 0)],  
+                    'taxes_id': [(5, 0, 0)],
                 })
                 rec.product_id = product.id
             else:

@@ -10,7 +10,7 @@
                         <field name="to_date"/>
                     </group>
                     <group>
-                        <field name="state" widget="radio" />
+                        <field name="state" widget="radio"/>
                     </group>
                 </group>
                 <footer>

@@ -2,7 +2,7 @@
     <data>
 
         <record id="paperformat_advice_sheet" model="report.paperformat">
-           <field name="name">A4 Portrait</field>
+            <field name="name">A4 Portrait</field>
             <field name="default" eval="True"/>
             <field name="format">A4</field>
             <field name="page_height">0</field>

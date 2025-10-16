@@ -11,9 +11,9 @@
                     <div class="d-flex justify-content-start align-items-center text-center"
                          style="color: green; width:100%; margin-top: 0; padding-top: 0;">
                         <img
-                            t-att-src="'/dsl_hms_physiotherapy_extension/static/img/sahic.png'"
-                            alt="Hospital Logo"
-                            style="width: 200px; height: 200px; margin-right:20px;"
+                                t-att-src="'/dsl_hms_physiotherapy_extension/static/img/sahic.png'"
+                                alt="Hospital Logo"
+                                style="width: 200px; height: 200px; margin-right:20px;"
                         />
                         <div>
                             <div style="font-size:25px; font-weight:700; margin-top:3px;">

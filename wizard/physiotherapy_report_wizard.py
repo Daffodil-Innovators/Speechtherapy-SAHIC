@@ -2,6 +2,7 @@ from odoo import models, fields
 from datetime import datetime
 from dateutil import relativedelta
 
+
 class PhysiotherapyReportWizard(models.TransientModel):
     _name = "physiotherapy.report.wizard"
     _description = "Physiotherapy Summary Report Wizard"

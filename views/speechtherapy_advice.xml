@@ -18,5 +18,5 @@
         <field name="view_id" ref="view_advice_tree"/>
     </record>
 
-  
+
 </odoo>

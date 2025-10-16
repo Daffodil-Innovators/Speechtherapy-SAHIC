@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    
+
     <record id="action_physio_dashboard" model="ir.actions.client">
         <field name="name">Speechtherapy Dashboard</field>
         <field name="tag">dsl_physio_dashboard</field>
@@ -19,7 +19,7 @@
               sequence="90"
               groups="dsl_hms_base.group_hms_manager"/>
 
-     <menuitem id="menu_physio_config_physios"
+    <menuitem id="menu_physio_config_physios"
               name="Speechtherapists"
               parent="dsl_hms_physiotherapy.menu_physiotherapy_cofig"
               action="action_physio"
@@ -33,7 +33,7 @@
               sequence="21"
               groups="dsl_hms_base.group_hms_manager"/>
 
-     <menuitem id="menu_speechtherapy_type"
+    <menuitem id="menu_speechtherapy_type"
               name="Speechtherapy Type"
               parent="dsl_hms_physiotherapy.menu_physiotherapy_cofig"
               action="action_speechtherapy_type"
@@ -45,8 +45,7 @@
               parent="dsl_hms_physiotherapy.menu_physiotherapy_cofig"
               action="action_advice"
               sequence="40"
-              />
+    />
 
-    
 
 </odoo>

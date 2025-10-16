@@ -1,5 +1,5 @@
 <odoo>
-    
+
     <!-- Tree View -->
     <record id="view_physio_tree" model="ir.ui.view">
         <field name="name">dsl.physiotherapist.tree</field>
@@ -24,13 +24,14 @@
                 <sheet>
                     <div class="oe_button_box" name="button_box">
                     </div>
-                    
+
                     <!-- Avatar Image -->
                     <field name="image_1920" widget="image" class="oe_avatar" options="{'preview_image': 'image_128'}"/>
-                    
+
                     <!-- Archived Ribbon -->
-                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
-                    
+                    <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
+                            attrs="{'invisible': [('active', '=', True)]}"/>
+
                     <!-- Title Section -->
                     <div class="oe_title">
                         <label for="name" string="Name" class="oe_edit_only"/>
@@ -44,20 +45,20 @@
                             </h3>
                         </div>
                     </div>
-                    
+
                     <!-- Main Info Group -->
                     <group>
                         <group>
                             <field name="code" string="Speechtherapist ID" readonly="1"/>
                             <field name="designation"/>
-                             <field name="user_id"/>
+                            <field name="user_id"/>
                             <field name="partner_id"/>
                             <field name="active" invisible="1"/>
                         </group>
                         <group>
                         </group>
                     </group>
-                    
+
                     <!-- Notebook -->
                     <notebook>
                         <!-- General Information Page -->
@@ -70,10 +71,12 @@
                                         <field name="street2"/>
                                         <div class="address_format">
                                             <field name="city" placeholder="City" style="width: 40%"/>
-                                            <field name="state_id" class="oe_no_button" placeholder="State" style="width: 37%" options="{'no_open': True}"/>
+                                            <field name="state_id" class="oe_no_button" placeholder="State"
+                                                   style="width: 37%" options="{'no_open': True}"/>
                                             <field name="zip" placeholder="ZIP" style="width: 20%"/>
                                         </div>
-                                        <field name="country_id" placeholder="Country" class="oe_no_button" options="{'no_open': True}"/>
+                                        <field name="country_id" placeholder="Country" class="oe_no_button"
+                                               options="{'no_open': True}"/>
                                     </div>
                                 </group>
                                 <group>
@@ -83,7 +86,7 @@
                                 </group>
                             </group>
                         </page>
-                        
+
                         <!-- Personal Info Page -->
                         <page string="Personal Info" name="personal_info">
                             <group>
@@ -92,7 +95,7 @@
                                 </group>
                             </group>
                         </page>
-                        
+
                         <!-- Info Bangla Page -->
                         <page string="Info Bangla" name="info_bangla">
                             <group>
@@ -104,11 +107,11 @@
                         </page>
                     </notebook>
                 </sheet>
-                                
+
             </form>
         </field>
     </record>
-    
+
     <record id="view_physio_kanban" model="ir.ui.view">
         <field name="name">dsl.physiotherapist.kanban</field>
         <field name="model">dsl.physiotherapist</field>
@@ -123,14 +126,23 @@
                     <t t-name="kanban-box">
                         <div class="oe_kanban_global_click o_kanban_record_has_image_fill">
                             <t t-set="placeholder" t-value="'/base/static/img/avatar_grey.png'"/>
-                            <div class="o_kanban_image_fill_left d-none d-md-block" t-attf-style="background-image:url('#{kanban_image('dsl.physiotherapist', 'image_128', record.id.raw_value, placeholder)}')"/>
+                            <div class="o_kanban_image_fill_left d-none d-md-block"
+                                 t-attf-style="background-image:url('#{kanban_image('dsl.physiotherapist', 'image_128', record.id.raw_value, placeholder)}')"/>
                             <div class="oe_kanban_details">
                                 <div class="o_kanban_record_top">
-                                    <strong class="oe_partner_heading"><field name="name"/></strong>
+                                    <strong class="oe_partner_heading">
+                                        <field name="name"/>
+                                    </strong>
                                 </div>
                                 <ul>
-                                    <li><b>Code:</b> <field name="code"/></li>
-                                    <li t-if="record.designation.raw_value"><b>Designation:</b> <field name="designation"/></li>
+                                    <li>
+                                        <b>Code:</b>
+                                        <field name="code"/>
+                                    </li>
+                                    <li t-if="record.designation.raw_value">
+                                        <b>Designation:</b>
+                                        <field name="designation"/>
+                                    </li>
                                 </ul>
                             </div>
                         </div>

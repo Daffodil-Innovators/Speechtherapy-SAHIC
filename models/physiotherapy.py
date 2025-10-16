@@ -14,7 +14,7 @@ class dslPhysiotherapy(models.Model):
         'dsl.clinician',
         string='Clinician', store=True
     )
-    test1 = fields.Char("Test")
+
     speechtherapy_type_id = fields.Many2one(
         'speech.therapy.type',
         string="Speechtherapy Type"
@@ -36,11 +36,10 @@ class dslPhysiotherapy(models.Model):
     )
 
     advice_ids = fields.Many2many(
-        'speechtherapy.advice', 
-        string="Advice", 
+        'speechtherapy.advice',
+        string="Advice",
         help="Select the required advice for the patient"
     )
-
 
     @api.depends('patient_id')
     def _get_speech_therapy_history(self):
@@ -100,8 +99,9 @@ class dslPhysiotherapy(models.Model):
             """
             rec.speech_therapy_history = history
 
-    speech_therapy_history = fields.Html(compute='_get_speech_therapy_history', store=True, string='Speech Therapy History', readonly=True)
-        
+    speech_therapy_history = fields.Html(compute='_get_speech_therapy_history', store=True,
+                                         string='Speech Therapy History', readonly=True)
+
 
 class dslPhysiotherapyExt(models.Model):
     _inherit = "dsl.physiotherapy"
@@ -116,6 +116,7 @@ class dslPhysiotherapyExt(models.Model):
         ('done', 'Done'),
         ('cancel', 'Cancel'),
     ], string='State', readonly=True, default='pre_appointment')
+
 
     # related field to check payment status in view
     invoice_payment_state = fields.Selection(
@@ -177,6 +178,8 @@ class dslPhysiotherapyExt(models.Model):
 
         if self.state != 'payment_pending':
             raise UserError(_('Invalid state for payment.'))
+        if self.no_invoice:
+            raise UserError(_('Cannot create invoice when "No Invoice" is checked.'))
         if not self.speechtherapy_type_id:
             raise UserError(_('Please select a speech therapy type before creating invoice.'))
 
@@ -224,6 +227,7 @@ class dslPhysiotherapyExt(models.Model):
         invoice.action_post()
         self.invoice_id = invoice.id
 
+
         # Change state to show "View Invoice" button
         self.state = 'payment_pending'  # Keep same state but now invoice exists
 
@@ -244,13 +248,11 @@ class dslPhysiotherapyExt(models.Model):
         }
 
     def action_add_to_queue(self):
-        """Add patient to queue only if invoice is paid"""
+        """Add patient to queue if no_invoice is checked or invoice exists"""
         self.ensure_one()
 
-        if not self.invoice_id:
-            raise UserError(_('No invoice found! Please create invoice first.'))
-        if self.invoice_id.payment_state != 'paid':
-            raise UserError(_('Invoice must be paid before adding to queue.'))
+        if not self.no_invoice and not self.invoice_id:
+            raise UserError(_('No invoice found! Please create invoice first or check "No Invoice".'))
 
         today_count = self.env['dsl.physiotherapy'].search_count([
             ('create_date', '>=', fields.Date.today()),
@@ -270,14 +272,6 @@ class dslPhysiotherapyExt(models.Model):
             'tag': 'reload',
             'params': {'res_id': self.id},
         }
-        # return {
-        #     'type': 'ir.actions.act_window',
-        #     'res_model': 'dsl.physiotherapy',
-        #     'res_id': self.id,
-        #     'view_mode': 'form',
-        #     'target': 'current',
-        #     'context': self.env.context,
-        # }
 
     def action_end_therapy(self):
         if self.state != 'in_progress':

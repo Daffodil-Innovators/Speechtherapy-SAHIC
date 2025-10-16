@@ -108,7 +108,7 @@
                                     <div class="h1 mb-0 text-white" t-esc="(metrics and metrics.global_today) or 0"/>
                                     <div class="lead text-white">Total Speechtherapy Today</div>
                                 </div>
-                                    <i class="fa fa-user-md fa-3x opacity-100 text-white"/>
+                                <i class="fa fa-user-md fa-3x opacity-100 text-white"/>
                             </div>
                             <div class="card-footer d-flex justify-content-between align-items-center">
                                 <a href="javascript:void(0)" class="js-global-today text-primary">View Details</a>
@@ -125,7 +125,7 @@
                                     <div class="h1 mb-0 text-white" t-esc="(metrics and metrics.global_total) or 0"/>
                                     <div class="lead text-white">Total Speechtherapy All Time</div>
                                 </div>
-                                    <i class="fa fa-heartbeat fa-3x opacity-100 text-white"/>
+                                <i class="fa fa-heartbeat fa-3x opacity-100 text-white"/>
                             </div>
                             <div class="card-footer d-flex justify-content-between align-items-center">
                                 <a href="javascript:void(0)" class="js-global-total text-primary">View Details</a>
@@ -143,7 +143,7 @@
                                          t-esc="metrics and metrics.global_collected ? metrics.global_collected.toFixed(2) : '0.00'"/>
                                     <div class="lead text-white">Total Collections</div>
                                 </div>
-                                    <i class="fa fa-money fa-3x opacity-100 text-white"/>
+                                <i class="fa fa-money fa-3x opacity-100 text-white"/>
                             </div>
                             <div class="card-footer d-flex justify-content-between align-items-center">
                                 <a href="javascript:void(0)" class="js-global-collection text-primary">View Details</a>

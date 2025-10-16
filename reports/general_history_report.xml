@@ -6,15 +6,21 @@
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="doc">
                 <t t-call="web.external_layout">
-                    <div class="page" style="font-family: Arial, sans-serif; font-size: 13pt; line-height: 1.5; text-align: justify;">
-                        
+                    <div class="page"
+                         style="font-family: Arial, sans-serif; font-size: 13pt; line-height: 1.5; text-align: justify;">
+
                         <!-- Header -->
                         <div style="text-align: center; margin-bottom: 18px; border-bottom: 2px solid #000; padding-bottom: 10px;">
-                            <h2 style="margin: 0; font-size: 20pt; font-weight: bold; color: #000;">National Centre for Hearing and Speech for Children</h2>
-                            <p style="margin: 4px 0; font-size: 15pt; color: #000;">Speech and Language Therapy Dept.</p>
+                            <h2 style="margin: 0; font-size: 20pt; font-weight: bold; color: #000;">National Centre for
+                                Hearing and Speech for Children
+                            </h2>
+                            <p style="margin: 4px 0; font-size: 15pt; color: #000;">Speech and Language Therapy Dept.
+                            </p>
                             <p style="margin: 4px 0; font-size: 13pt; color: #000;">Mohakhali, Dhaka-1212</p>
                             <p style="margin: 4px 0; font-size: 13pt; color: #000;">Phone-9881535, Ext-128</p>
-                            <h3 style="margin: 12px 0 0 0; font-size: 17pt; font-weight: bold; color: #000;">General History for Speech &amp; Language Disorders</h3>
+                            <h3 style="margin: 12px 0 0 0; font-size: 17pt; font-weight: bold; color: #000;">General
+                                History for Speech &amp; Language Disorders
+                            </h3>
                         </div>
 
                         <!-- Patient Information -->
@@ -22,24 +28,30 @@
                             <table style="width: 100%; border-collapse: collapse;">
                                 <tr>
                                     <td style="width: 50%; padding: 4px 0;">
-                                        <strong>Name:</strong> <span t-field="doc.patient_id.name"/>
+                                        <strong>Name:</strong>
+                                        <span t-field="doc.patient_id.name"/>
                                     </td>
                                     <td style="width: 25%; padding: 4px 0;">
-                                        <strong>Case no:</strong> <span t-field="doc.name"/>
+                                        <strong>Case no:</strong>
+                                        <span t-field="doc.name"/>
                                     </td>
                                     <td style="width: 25%; padding: 4px 0;">
-                                        <strong>Date:</strong> <span t-field="doc.date"/>
+                                        <strong>Date:</strong>
+                                        <span t-field="doc.date"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td style="padding: 4px 0;">
-                                        <strong>Clinician:</strong> <span t-field="doc.physiotherapist_id.name"/>
+                                        <strong>Clinician:</strong>
+                                        <span t-field="doc.physiotherapist_id.name"/>
                                     </td>
                                     <td style="padding: 4px 0;">
-                                        <strong>Age:</strong> <span t-field="doc.patient_id.age"/>
+                                        <strong>Age:</strong>
+                                        <span t-field="doc.patient_id.age"/>
                                     </td>
                                     <td style="padding: 4px 0;">
-                                        <strong>Sex:</strong> <span t-field="doc.patient_id.gender"/>
+                                        <strong>Sex:</strong>
+                                        <span t-field="doc.patient_id.gender"/>
                                     </td>
                                 </tr>
                             </table>
@@ -52,22 +64,54 @@
                             <tr style="vertical-align: top;">
                                 <!-- Left Column -->
                                 <td style="width: 50%; padding-right: 10px;">
-                                    
+
                                     <!-- (1) Medical History -->
                                     <div style="margin-bottom: 12px;">
-                                        <h4 style="margin: 6px 0 4px 0; font-size: 13pt; font-weight: bold; border-bottom: 1px solid #000; padding-bottom: 3px;">(1) Medical History</h4>
-                                        
+                                        <h4 style="margin: 6px 0 4px 0; font-size: 13pt; font-weight: bold; border-bottom: 1px solid #000; padding-bottom: 3px;">
+                                            (1) Medical History
+                                        </h4>
+
                                         <!-- (a) Prenatal History -->
                                         <div style="margin-left: 10px; margin-bottom: 8px;">
                                             <strong style="font-size: 12pt;">(a) Prenatal History</strong>
                                             <div style="margin-left: 12px; font-size: 11pt; line-height: 1.6;">
-                                                <div><span t-if="doc.history_miscarriage" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> (i) History of miscarriages</div>
-                                                <div><span t-if="doc.medication_use" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> (ii) Use of Medication</div>
-                                                <div><span t-if="doc.viral_infections" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> (iii) Viral infections</div>
-                                                <div><span t-if="doc.other_illnesses" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> (iv) Other illnesses</div>
-                                                <div><span t-if="doc.xray_prenatal" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> (v) X-Ray</div>
-                                                <div><span t-if="doc.excessive_vomiting" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> (vi) Excessive vomiting</div>
-                                                <div t-if="doc.prenatal_others" style="margin-top: 3px;"><strong>(vii) Others:</strong> <span t-field="doc.prenatal_others"/></div>
+                                                <div>
+                                                    <span t-if="doc.history_miscarriage" style="margin-right: 5px;">✔
+                                                    </span>
+                                                    <span t-else="" style="margin-right: 5px;">☐</span>
+                                                    (i) History of miscarriages
+                                                </div>
+                                                <div>
+                                                    <span t-if="doc.medication_use" style="margin-right: 5px;">✔</span>
+                                                    <span t-else="" style="margin-right: 5px;">☐</span>
+                                                    (ii) Use of Medication
+                                                </div>
+                                                <div>
+                                                    <span t-if="doc.viral_infections" style="margin-right: 5px;">✔
+                                                    </span>
+                                                    <span t-else="" style="margin-right: 5px;">☐</span>
+                                                    (iii) Viral infections
+                                                </div>
+                                                <div>
+                                                    <span t-if="doc.other_illnesses" style="margin-right: 5px;">✔</span>
+                                                    <span t-else="" style="margin-right: 5px;">☐</span>
+                                                    (iv) Other illnesses
+                                                </div>
+                                                <div>
+                                                    <span t-if="doc.xray_prenatal" style="margin-right: 5px;">✔</span>
+                                                    <span t-else="" style="margin-right: 5px;">☐</span>
+                                                    (v) X-Ray
+                                                </div>
+                                                <div>
+                                                    <span t-if="doc.excessive_vomiting" style="margin-right: 5px;">✔
+                                                    </span>
+                                                    <span t-else="" style="margin-right: 5px;">☐</span>
+                                                    (vi) Excessive vomiting
+                                                </div>
+                                                <div t-if="doc.prenatal_others" style="margin-top: 3px;">
+                                                    <strong>(vii) Others:</strong>
+                                                    <span t-field="doc.prenatal_others"/>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -75,38 +119,116 @@
                                         <div style="margin-left: 10px; margin-bottom: 8px;">
                                             <strong style="font-size: 12pt;">(b) Birth History</strong>
                                             <div style="margin-left: 12px; font-size: 11pt; line-height: 1.6;">
-                                                <div><span t-if="doc.premature_delivery" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> (i) Premature delivery</div>
-                                                <div><span t-if="doc.post_term_delivery" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> (ii) Post term delivery</div>
+                                                <div>
+                                                    <span t-if="doc.premature_delivery" style="margin-right: 5px;">✔
+                                                    </span>
+                                                    <span t-else="" style="margin-right: 5px;">☐</span>
+                                                    (i) Premature delivery
+                                                </div>
+                                                <div>
+                                                    <span t-if="doc.post_term_delivery" style="margin-right: 5px;">✔
+                                                    </span>
+                                                    <span t-else="" style="margin-right: 5px;">☐</span>
+                                                    (ii) Post term delivery
+                                                </div>
                                                 <div style="margin-top: 3px;">
-                                                    <strong>(iii) Labour:</strong><br/>
+                                                    <strong>(iii) Labour:</strong>
+                                                    <br/>
                                                     <span style="margin-left: 6px;">
-                                                        <span t-if="doc.labour_type == 'normal'" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> Normal
-                                                        <span t-if="doc.labour_type == 'prolonged'" style="margin-right: 5px; margin-left: 6px;">✔</span><span t-else="" style="margin-right: 5px; margin-left: 6px;">☐</span> Prolonged
-                                                    </span><br/>
+                                                        <span t-if="doc.labour_type == 'normal'"
+                                                              style="margin-right: 5px;">✔
+                                                        </span>
+                                                        <span t-else="" style="margin-right: 5px;">☐</span>
+                                                        Normal
+                                                        <span t-if="doc.labour_type == 'prolonged'"
+                                                              style="margin-right: 5px; margin-left: 6px;">✔
+                                                        </span>
+                                                        <span t-else="" style="margin-right: 5px; margin-left: 6px;">☐
+                                                        </span>
+                                                        Prolonged
+                                                    </span>
+                                                    <br/>
                                                     <span style="margin-left: 6px;">
-                                                        <span t-if="doc.labour_type == 'instrumental'" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> Instrumental Delivery
-                                                    </span><br/>
+                                                        <span t-if="doc.labour_type == 'instrumental'"
+                                                              style="margin-right: 5px;">✔
+                                                        </span>
+                                                        <span t-else="" style="margin-right: 5px;">☐</span>
+                                                        Instrumental Delivery
+                                                    </span>
+                                                    <br/>
                                                     <span style="margin-left: 6px;">
-                                                        <span t-if="doc.labour_type == 'caesarian'" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> Caesarian birth
+                                                        <span t-if="doc.labour_type == 'caesarian'"
+                                                              style="margin-right: 5px;">✔
+                                                        </span>
+                                                        <span t-else="" style="margin-right: 5px;">☐</span>
+                                                        Caesarian birth
                                                     </span>
                                                 </div>
-                                                <div t-if="doc.birth_weight" style="margin-top: 3px;"><strong>Birth Weight:</strong> <span t-field="doc.birth_weight"/></div>
-                                                <div t-if="doc.birth_injuries" style="margin-top: 3px;"><strong>Birth injuries:</strong> <span t-field="doc.birth_injuries"/></div>
+                                                <div t-if="doc.birth_weight" style="margin-top: 3px;">
+                                                    <strong>Birth Weight:</strong>
+                                                    <span t-field="doc.birth_weight"/>
+                                                </div>
+                                                <div t-if="doc.birth_injuries" style="margin-top: 3px;">
+                                                    <strong>Birth injuries:</strong>
+                                                    <span t-field="doc.birth_injuries"/>
+                                                </div>
                                                 <div style="margin-top: 3px;">
                                                     <strong>(iv) Anesthesia:</strong>
-                                                    <span t-if="doc.anesthesia_type == 'general'" style="margin-right: 5px; margin-left: 6px;">✔</span><span t-else="" style="margin-right: 5px; margin-left: 6px;">☐</span> General
-                                                    <span t-if="doc.anesthesia_type == 'spinal'" style="margin-right: 5px; margin-left: 6px;">✔</span><span t-else="" style="margin-right: 5px; margin-left: 6px;">☐</span> spinal
+                                                    <span t-if="doc.anesthesia_type == 'general'"
+                                                          style="margin-right: 5px; margin-left: 6px;">✔
+                                                    </span>
+                                                    <span t-else="" style="margin-right: 5px; margin-left: 6px;">☐
+                                                    </span>
+                                                    General
+                                                    <span t-if="doc.anesthesia_type == 'spinal'"
+                                                          style="margin-right: 5px; margin-left: 6px;">✔
+                                                    </span>
+                                                    <span t-else="" style="margin-right: 5px; margin-left: 6px;">☐
+                                                    </span>
+                                                    spinal
                                                 </div>
                                                 <div style="margin-top: 3px;">
                                                     <strong>(v) Birth cry:</strong>
-                                                    <span t-if="doc.birth_cry == 'normal'" style="margin-right: 5px; margin-left: 6px;">✔</span><span t-else="" style="margin-right: 5px; margin-left: 6px;">☐</span> normal
-                                                    <span t-if="doc.birth_cry == 'delayed'" style="margin-right: 5px; margin-left: 6px;">✔</span><span t-else="" style="margin-right: 5px; margin-left: 6px;">☐</span> delayed
+                                                    <span t-if="doc.birth_cry == 'normal'"
+                                                          style="margin-right: 5px; margin-left: 6px;">✔
+                                                    </span>
+                                                    <span t-else="" style="margin-right: 5px; margin-left: 6px;">☐
+                                                    </span>
+                                                    normal
+                                                    <span t-if="doc.birth_cry == 'delayed'"
+                                                          style="margin-right: 5px; margin-left: 6px;">✔
+                                                    </span>
+                                                    <span t-else="" style="margin-right: 5px; margin-left: 6px;">☐
+                                                    </span>
+                                                    delayed
                                                 </div>
-                                                <div><span t-if="doc.hypoxia" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> (vi) Hypoxia</div>
-                                                <div><span t-if="doc.jaundice_days" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> (vii) Jaundice (first 3-4 days)</div>
-                                                <div><span t-if="doc.rh_incompatibility" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> (viii) Ph. Incompatibility</div>
-                                                <div><span t-if="doc.congenital_deformities" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> (ix) Congenital deformities</div>
-                                                <div t-if="doc.birth_history_others" style="margin-top: 3px;"><strong>(x) Other:</strong> <span t-field="doc.birth_history_others"/></div>
+                                                <div>
+                                                    <span t-if="doc.hypoxia" style="margin-right: 5px;">✔</span>
+                                                    <span t-else="" style="margin-right: 5px;">☐</span>
+                                                    (vi) Hypoxia
+                                                </div>
+                                                <div>
+                                                    <span t-if="doc.jaundice_days" style="margin-right: 5px;">✔</span>
+                                                    <span t-else="" style="margin-right: 5px;">☐</span>
+                                                    (vii) Jaundice (first 3-4 days)
+                                                </div>
+                                                <div>
+                                                    <span t-if="doc.rh_incompatibility" style="margin-right: 5px;">✔
+                                                    </span>
+                                                    <span t-else="" style="margin-right: 5px;">☐</span>
+                                                    (viii) Ph. Incompatibility
+                                                </div>
+                                                <div>
+                                                    <span t-if="doc.congenital_deformities" style="margin-right: 5px;">
+                                                        ✔
+                                                    </span>
+                                                    <span t-else="" style="margin-right: 5px;">☐</span>
+                                                    (ix) Congenital deformities
+                                                </div>
+                                                <div t-if="doc.birth_history_others" style="margin-top: 3px;">
+                                                    <strong>(x) Other:</strong>
+                                                    <span t-field="doc.birth_history_others"/>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -114,23 +236,84 @@
                                         <div style="margin-left: 10px;">
                                             <strong style="font-size: 12pt;">(c) Post natal-History</strong>
                                             <div style="margin-left: 12px; font-size: 11pt; line-height: 1.6;">
-                                                <div><span t-if="doc.head_injury" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> (i) Head injury</div>
-                                                <div><span t-if="doc.convulsions" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> (ii) Convulsions</div>
-                                                <div><span t-if="doc.ear_infections" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> (iii) Ear infections</div>
-                                                <div style="margin-top: 3px;"><strong>(iv) Illnesses</strong></div>
-                                                <div style="margin-left: 12px;">
-                                                    <span t-if="doc.illnesses_mumps" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> Mumps
-                                                    <span t-if="doc.illnesses_chicken_pox" style="margin-right: 5px; margin-left: 6px;">✔</span><span t-else="" style="margin-right: 5px; margin-left: 6px;">☐</span> Chicken pox
-                                                    <span t-if="doc.illnesses_influenza" style="margin-right: 5px; margin-left: 6px;">✔</span><span t-else="" style="margin-right: 5px; margin-left: 6px;">☐</span> Influenza<br/>
-                                                    <span t-if="doc.illnesses_typhoid" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> Typhoid
-                                                    <span t-if="doc.illnesses_whooping_cough" style="margin-right: 5px; margin-left: 6px;">✔</span><span t-else="" style="margin-right: 5px; margin-left: 6px;">☐</span> Whooping cough
-                                                    <span t-if="doc.illnesses_tb" style="margin-right: 5px; margin-left: 6px;">✔</span><span t-else="" style="margin-right: 5px; margin-left: 6px;">☐</span> T.B<br/>
-                                                    <span t-if="doc.illnesses_meningitis" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> Meningitis
-                                                    <span t-if="doc.illnesses_high_fever" style="margin-right: 5px; margin-left: 6px;">✔</span><span t-else="" style="margin-right: 5px; margin-left: 6px;">☐</span> High fever
+                                                <div>
+                                                    <span t-if="doc.head_injury" style="margin-right: 5px;">✔</span>
+                                                    <span t-else="" style="margin-right: 5px;">☐</span>
+                                                    (i) Head injury
                                                 </div>
-                                                <div><span t-if="doc.accidents" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> (v) Accidents</div>
-                                                <div><span t-if="doc.emotional_trauma" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> (vi) Emotional trauma</div>
-                                                <div t-if="doc.postnatal_others" style="margin-top: 3px;"><strong>(vii) Other:</strong> <span t-field="doc.postnatal_others"/></div>
+                                                <div>
+                                                    <span t-if="doc.convulsions" style="margin-right: 5px;">✔</span>
+                                                    <span t-else="" style="margin-right: 5px;">☐</span>
+                                                    (ii) Convulsions
+                                                </div>
+                                                <div>
+                                                    <span t-if="doc.ear_infections" style="margin-right: 5px;">✔</span>
+                                                    <span t-else="" style="margin-right: 5px;">☐</span>
+                                                    (iii) Ear infections
+                                                </div>
+                                                <div style="margin-top: 3px;">
+                                                    <strong>(iv) Illnesses</strong>
+                                                </div>
+                                                <div style="margin-left: 12px;">
+                                                    <span t-if="doc.illnesses_mumps" style="margin-right: 5px;">✔</span>
+                                                    <span t-else="" style="margin-right: 5px;">☐</span>
+                                                    Mumps
+                                                    <span t-if="doc.illnesses_chicken_pox"
+                                                          style="margin-right: 5px; margin-left: 6px;">✔
+                                                    </span>
+                                                    <span t-else="" style="margin-right: 5px; margin-left: 6px;">☐
+                                                    </span>
+                                                    Chicken pox
+                                                    <span t-if="doc.illnesses_influenza"
+                                                          style="margin-right: 5px; margin-left: 6px;">✔
+                                                    </span>
+                                                    <span t-else="" style="margin-right: 5px; margin-left: 6px;">☐
+                                                    </span>
+                                                    Influenza
+                                                    <br/>
+                                                    <span t-if="doc.illnesses_typhoid" style="margin-right: 5px;">✔
+                                                    </span>
+                                                    <span t-else="" style="margin-right: 5px;">☐</span>
+                                                    Typhoid
+                                                    <span t-if="doc.illnesses_whooping_cough"
+                                                          style="margin-right: 5px; margin-left: 6px;">✔
+                                                    </span>
+                                                    <span t-else="" style="margin-right: 5px; margin-left: 6px;">☐
+                                                    </span>
+                                                    Whooping cough
+                                                    <span t-if="doc.illnesses_tb"
+                                                          style="margin-right: 5px; margin-left: 6px;">✔
+                                                    </span>
+                                                    <span t-else="" style="margin-right: 5px; margin-left: 6px;">☐
+                                                    </span>
+                                                    T.B
+                                                    <br/>
+                                                    <span t-if="doc.illnesses_meningitis" style="margin-right: 5px;">✔
+                                                    </span>
+                                                    <span t-else="" style="margin-right: 5px;">☐</span>
+                                                    Meningitis
+                                                    <span t-if="doc.illnesses_high_fever"
+                                                          style="margin-right: 5px; margin-left: 6px;">✔
+                                                    </span>
+                                                    <span t-else="" style="margin-right: 5px; margin-left: 6px;">☐
+                                                    </span>
+                                                    High fever
+                                                </div>
+                                                <div>
+                                                    <span t-if="doc.accidents" style="margin-right: 5px;">✔</span>
+                                                    <span t-else="" style="margin-right: 5px;">☐</span>
+                                                    (v) Accidents
+                                                </div>
+                                                <div>
+                                                    <span t-if="doc.emotional_trauma" style="margin-right: 5px;">✔
+                                                    </span>
+                                                    <span t-else="" style="margin-right: 5px;">☐</span>
+                                                    (vi) Emotional trauma
+                                                </div>
+                                                <div t-if="doc.postnatal_others" style="margin-top: 3px;">
+                                                    <strong>(vii) Other:</strong>
+                                                    <span t-field="doc.postnatal_others"/>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -139,84 +322,199 @@
 
                                 <!-- Right Column -->
                                 <td style="width: 50%; padding-left: 10px;">
-                                    
+
                                     <!-- (2) Development History -->
                                     <div style="margin-bottom: 12px;">
-                                        <h4 style="margin: 6px 0 4px 0; font-size: 13pt; font-weight: bold; border-bottom: 1px solid #000; padding-bottom: 3px;">(2) Development History</h4>
+                                        <h4 style="margin: 6px 0 4px 0; font-size: 13pt; font-weight: bold; border-bottom: 1px solid #000; padding-bottom: 3px;">
+                                            (2) Development History
+                                        </h4>
                                         <div style="margin-left: 10px; font-size: 11pt; line-height: 1.6;">
-                                            <div t-if="doc.dev_head_control">(i) Head control: <span t-field="doc.dev_head_control"/></div>
-                                            <div t-if="doc.dev_turning_over">(ii) Turning over: <span t-field="doc.dev_turning_over"/></div>
-                                            <div t-if="doc.dev_sitting">(iii) Sitting: <span t-field="doc.dev_sitting"/></div>
-                                            <div t-if="doc.dev_crawling">(iv) Crawling: <span t-field="doc.dev_crawling"/></div>
-                                            <div t-if="doc.dev_walking">(v) Walking: <span t-field="doc.dev_walking"/></div>
-                                            <div t-if="doc.dev_bowel_bladder">(vi) Bowel &amp; Bladder control: <span t-field="doc.dev_bowel_bladder"/></div>
-                                            <div t-if="doc.dev_feeds_himself">(vii) Feeds himself: <span t-field="doc.dev_feeds_himself"/></div>
-                                            <div t-if="doc.dev_dresses_himself">(viii) Dresses himself: <span t-field="doc.dev_dresses_himself"/></div>
+                                            <div t-if="doc.dev_head_control">(i) Head control:
+                                                <span t-field="doc.dev_head_control"/>
+                                            </div>
+                                            <div t-if="doc.dev_turning_over">(ii) Turning over:
+                                                <span t-field="doc.dev_turning_over"/>
+                                            </div>
+                                            <div t-if="doc.dev_sitting">(iii) Sitting:
+                                                <span t-field="doc.dev_sitting"/>
+                                            </div>
+                                            <div t-if="doc.dev_crawling">(iv) Crawling:
+                                                <span t-field="doc.dev_crawling"/>
+                                            </div>
+                                            <div t-if="doc.dev_walking">(v) Walking:
+                                                <span t-field="doc.dev_walking"/>
+                                            </div>
+                                            <div t-if="doc.dev_bowel_bladder">(vi) Bowel &amp; Bladder control:
+                                                <span t-field="doc.dev_bowel_bladder"/>
+                                            </div>
+                                            <div t-if="doc.dev_feeds_himself">(vii) Feeds himself:
+                                                <span t-field="doc.dev_feeds_himself"/>
+                                            </div>
+                                            <div t-if="doc.dev_dresses_himself">(viii) Dresses himself:
+                                                <span t-field="doc.dev_dresses_himself"/>
+                                            </div>
                                         </div>
                                     </div>
 
                                     <!-- (3) Motor Control -->
                                     <div style="margin-bottom: 12px;">
-                                        <h4 style="margin: 6px 0 4px 0; font-size: 13pt; font-weight: bold; border-bottom: 1px solid #000; padding-bottom: 3px;">(3) Motor Control</h4>
+                                        <h4 style="margin: 6px 0 4px 0; font-size: 13pt; font-weight: bold; border-bottom: 1px solid #000; padding-bottom: 3px;">
+                                            (3) Motor Control
+                                        </h4>
                                         <div style="margin-left: 10px;">
-                                            <strong style="font-size: 11pt; display: block; margin-bottom: 3px;">(1) Gross motor dysfunction:</strong>
+                                            <strong style="font-size: 11pt; display: block; margin-bottom: 3px;">(1)
+                                                Gross motor dysfunction:
+                                            </strong>
                                             <div style="margin-left: 12px; font-size: 11pt; line-height: 1.6;">
-                                                <div><span t-if="doc.paralysis_weakness" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> Paralysis or weakness of limbs</div>
-                                                <div><span t-if="doc.limping" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> limping</div>
-                                                <div><span t-if="doc.toe_walking" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> toe-walking</div>
-                                                <div><span t-if="doc.stiffness" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> stiffness</div>
-                                                <div><span t-if="doc.dragging_foot" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> dragging of foot etc</div>
+                                                <div>
+                                                    <span t-if="doc.paralysis_weakness" style="margin-right: 5px;">✔
+                                                    </span>
+                                                    <span t-else="" style="margin-right: 5px;">☐</span>
+                                                    Paralysis or weakness of limbs
+                                                </div>
+                                                <div>
+                                                    <span t-if="doc.limping" style="margin-right: 5px;">✔</span>
+                                                    <span t-else="" style="margin-right: 5px;">☐</span>
+                                                    limping
+                                                </div>
+                                                <div>
+                                                    <span t-if="doc.toe_walking" style="margin-right: 5px;">✔</span>
+                                                    <span t-else="" style="margin-right: 5px;">☐</span>
+                                                    toe-walking
+                                                </div>
+                                                <div>
+                                                    <span t-if="doc.stiffness" style="margin-right: 5px;">✔</span>
+                                                    <span t-else="" style="margin-right: 5px;">☐</span>
+                                                    stiffness
+                                                </div>
+                                                <div>
+                                                    <span t-if="doc.dragging_foot" style="margin-right: 5px;">✔</span>
+                                                    <span t-else="" style="margin-right: 5px;">☐</span>
+                                                    dragging of foot etc
+                                                </div>
                                             </div>
-                                            <strong style="font-size: 11pt; display: block; margin: 5px 0 3px 0;">(2) Fine motor control</strong>
+                                            <strong style="font-size: 11pt; display: block; margin: 5px 0 3px 0;">(2)
+                                                Fine motor control
+                                            </strong>
                                             <div style="margin-left: 12px; font-size: 11pt; line-height: 1.6;">
-                                                <div><span t-if="doc.fine_motor_grasping" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> grasping</div>
-                                                <div><span t-if="doc.fine_motor_holding" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> holding objects effectively</div>
-                                                <div><span t-if="doc.fine_motor_tracing" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> tracing &amp; copying</div>
-                                                <div><span t-if="doc.fine_motor_drawing" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> Picture drawing</div>
+                                                <div>
+                                                    <span t-if="doc.fine_motor_grasping" style="margin-right: 5px;">✔
+                                                    </span>
+                                                    <span t-else="" style="margin-right: 5px;">☐</span>
+                                                    grasping
+                                                </div>
+                                                <div>
+                                                    <span t-if="doc.fine_motor_holding" style="margin-right: 5px;">✔
+                                                    </span>
+                                                    <span t-else="" style="margin-right: 5px;">☐</span>
+                                                    holding objects effectively
+                                                </div>
+                                                <div>
+                                                    <span t-if="doc.fine_motor_tracing" style="margin-right: 5px;">✔
+                                                    </span>
+                                                    <span t-else="" style="margin-right: 5px;">☐</span>
+                                                    tracing &amp; copying
+                                                </div>
+                                                <div>
+                                                    <span t-if="doc.fine_motor_drawing" style="margin-right: 5px;">✔
+                                                    </span>
+                                                    <span t-else="" style="margin-right: 5px;">☐</span>
+                                                    Picture drawing
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
 
                                     <!-- (4) Handedness -->
                                     <div style="margin-bottom: 12px;">
-                                        <h4 style="margin: 6px 0 4px 0; font-size: 13pt; font-weight: bold; border-bottom: 1px solid #000; padding-bottom: 3px;">(4) Handedness:</h4>
+                                        <h4 style="margin: 6px 0 4px 0; font-size: 13pt; font-weight: bold; border-bottom: 1px solid #000; padding-bottom: 3px;">
+                                            (4) Handedness:
+                                        </h4>
                                         <div style="margin-left: 10px; font-size: 11pt; line-height: 1.6;">
-                                            <span t-if="doc.handedness == 'right'" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> (R) handed
-                                            <span t-if="doc.handedness == 'left'" style="margin-right: 5px; margin-left: 6px;">✔</span><span t-else="" style="margin-right: 5px; margin-left: 6px;">☐</span> (L) handed
-                                            <span t-if="doc.handedness == 'mixed'" style="margin-right: 5px; margin-left: 6px;">✔</span><span t-else="" style="margin-right: 5px; margin-left: 6px;">☐</span> Mixed laterality
+                                            <span t-if="doc.handedness == 'right'" style="margin-right: 5px;">✔</span>
+                                            <span t-else="" style="margin-right: 5px;">☐</span>
+                                            (R) handed
+                                            <span t-if="doc.handedness == 'left'"
+                                                  style="margin-right: 5px; margin-left: 6px;">✔
+                                            </span>
+                                            <span t-else="" style="margin-right: 5px; margin-left: 6px;">☐</span>
+                                            (L) handed
+                                            <span t-if="doc.handedness == 'mixed'"
+                                                  style="margin-right: 5px; margin-left: 6px;">✔
+                                            </span>
+                                            <span t-else="" style="margin-right: 5px; margin-left: 6px;">☐</span>
+                                            Mixed laterality
                                         </div>
                                     </div>
 
                                     <!-- (5) Psychomotor Behavior -->
                                     <div style="margin-bottom: 12px;">
-                                        <h4 style="margin: 6px 0 4px 0; font-size: 13pt; font-weight: bold; border-bottom: 1px solid #000; padding-bottom: 3px;">(5) Psychomotor Behavior</h4>
+                                        <h4 style="margin: 6px 0 4px 0; font-size: 13pt; font-weight: bold; border-bottom: 1px solid #000; padding-bottom: 3px;">
+                                            (5) Psychomotor Behavior
+                                        </h4>
                                         <div style="margin-left: 10px; font-size: 11pt; line-height: 1.6;">
-                                            <div><span t-if="doc.psycho_tremors" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> Tremors</div>
-                                            <div><span t-if="doc.psycho_overflow" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> overflow movements</div>
-                                            <div><span t-if="doc.psycho_tic" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> tic</div>
-                                            <div><span t-if="doc.psycho_extraneous" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> Extraneous movements</div>
+                                            <div>
+                                                <span t-if="doc.psycho_tremors" style="margin-right: 5px;">✔</span>
+                                                <span t-else="" style="margin-right: 5px;">☐</span>
+                                                Tremors
+                                            </div>
+                                            <div>
+                                                <span t-if="doc.psycho_overflow" style="margin-right: 5px;">✔</span>
+                                                <span t-else="" style="margin-right: 5px;">☐</span>
+                                                overflow movements
+                                            </div>
+                                            <div>
+                                                <span t-if="doc.psycho_tic" style="margin-right: 5px;">✔</span>
+                                                <span t-else="" style="margin-right: 5px;">☐</span>
+                                                tic
+                                            </div>
+                                            <div>
+                                                <span t-if="doc.psycho_extraneous" style="margin-right: 5px;">✔</span>
+                                                <span t-else="" style="margin-right: 5px;">☐</span>
+                                                Extraneous movements
+                                            </div>
                                         </div>
                                     </div>
 
                                     <!-- (6) Examination of Speech Mechanism -->
                                     <div style="margin-bottom: 12px;">
-                                        <h4 style="margin: 6px 0 4px 0; font-size: 13pt; font-weight: bold; border-bottom: 1px solid #000; padding-bottom: 3px;">(6) Examination of Speech Mechanism</h4>
+                                        <h4 style="margin: 6px 0 4px 0; font-size: 13pt; font-weight: bold; border-bottom: 1px solid #000; padding-bottom: 3px;">
+                                            (6) Examination of Speech Mechanism
+                                        </h4>
                                         <div style="margin-left: 10px; font-size: 11pt; line-height: 1.6;">
-                                            <div t-if="doc.exam_lips">(i) Lips: <span t-field="doc.exam_lips"/></div>
-                                            <div t-if="doc.exam_teeth">(ii) Teeth: <span t-field="doc.exam_teeth"/></div>
-                                            <div t-if="doc.exam_tongue">(iii) Tongue: <span t-field="doc.exam_tongue"/></div>
-                                            <div t-if="doc.exam_hard_soft_plate">(iv) Hard &amp; Soft plate: <span t-field="doc.exam_hard_soft_plate"/></div>
-                                            <div t-if="doc.exam_uvula">(v) Uvula: <span t-field="doc.exam_uvula"/></div>
-                                            <div t-if="doc.exam_jaws">(vi) Jaws: <span t-field="doc.exam_jaws"/></div>
+                                            <div t-if="doc.exam_lips">(i) Lips:
+                                                <span t-field="doc.exam_lips"/>
+                                            </div>
+                                            <div t-if="doc.exam_teeth">(ii) Teeth:
+                                                <span t-field="doc.exam_teeth"/>
+                                            </div>
+                                            <div t-if="doc.exam_tongue">(iii) Tongue:
+                                                <span t-field="doc.exam_tongue"/>
+                                            </div>
+                                            <div t-if="doc.exam_hard_soft_plate">(iv) Hard &amp; Soft plate:
+                                                <span t-field="doc.exam_hard_soft_plate"/>
+                                            </div>
+                                            <div t-if="doc.exam_uvula">(v) Uvula:
+                                                <span t-field="doc.exam_uvula"/>
+                                            </div>
+                                            <div t-if="doc.exam_jaws">(vi) Jaws:
+                                                <span t-field="doc.exam_jaws"/>
+                                            </div>
                                         </div>
                                     </div>
 
                                     <!-- (7) Sensory Development -->
                                     <div style="margin-bottom: 12px;">
-                                        <h4 style="margin: 6px 0 4px 0; font-size: 13pt; font-weight: bold; border-bottom: 1px solid #000; padding-bottom: 3px;">(7) Sensory Development</h4>
+                                        <h4 style="margin: 6px 0 4px 0; font-size: 13pt; font-weight: bold; border-bottom: 1px solid #000; padding-bottom: 3px;">
+                                            (7) Sensory Development
+                                        </h4>
                                         <div style="margin-left: 10px; font-size: 11pt; line-height: 1.6;">
-                                            <div t-if="doc.sensory_hearing">(i) Hearing: <span t-field="doc.sensory_hearing"/></div>
-                                            <div t-if="doc.sensory_vision">(ii) Vision: <span t-field="doc.sensory_vision"/></div>
+                                            <div t-if="doc.sensory_hearing">(i) Hearing:
+                                                <span t-field="doc.sensory_hearing"/>
+                                            </div>
+                                            <div t-if="doc.sensory_vision">(ii) Vision:
+                                                <span t-field="doc.sensory_vision"/>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -232,42 +530,140 @@
                             <tr style="vertical-align: top;">
                                 <!-- Left Column - Page 2 -->
                                 <td style="width: 50%; padding-right: 10px;">
-                                    
+
                                     <!-- (8) Social Maturity -->
                                     <div style="margin-bottom: 12px;">
-                                        <h4 style="margin: 6px 0 4px 0; font-size: 13pt; font-weight: bold; border-bottom: 1px solid #000; padding-bottom: 3px;">(8) Social maturity : Emotional Stability</h4>
+                                        <h4 style="margin: 6px 0 4px 0; font-size: 13pt; font-weight: bold; border-bottom: 1px solid #000; padding-bottom: 3px;">
+                                            (8) Social maturity : Emotional Stability
+                                        </h4>
                                         <div style="margin-left: 10px; font-size: 11pt; line-height: 1.6;">
-                                            <div><span t-if="doc.social_recognizes_parents" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> Recognizes parents</div>
-                                            <div><span t-if="doc.social_refuses_strangers" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> Refuses to go to strangers</div>
-                                            <div><span t-if="doc.social_eye_contact" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> makes eye contact</div>
-                                            <div><span t-if="doc.social_play_alone" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> Prefer to play by himself</div>
-                                            <div><span t-if="doc.social_parallel_play" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> Indulges in parallel play</div>
-                                            <div><span t-if="doc.social_peers_elders" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> Socializes easily with peers and elders</div>
-                                            <div><span t-if="doc.social_looks_after" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> Looks after himself</div>
-                                            <div><span t-if="doc.social_play_pets" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> prefers to play with pets</div>
-                                            <div><span t-if="doc.social_quarrelsome" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> Quarrelsome for petty matters</div>
-                                            <div><span t-if="doc.social_temper" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> Exhibits Temper tantrums</div>
-                                            <div><span t-if="doc.social_engrossed" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> Gets engrossed in one activity</div>
-                                            <div><span t-if="doc.social_shifts_frequently" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> Shifts frequently from one activity to another</div>
-                                            <div><span t-if="doc.social_irritable" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> Irritable</div>
-                                            <div><span t-if="doc.social_distractive" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> Distractive</div>
-                                            <div><span t-if="doc.social_aggressive" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> Aggressive</div>
-                                            <div><span t-if="doc.social_withdrawn" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> Withdrawn</div>
-                                            <div><span t-if="doc.social_restless" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> Restless</div>
-                                            <div><span t-if="doc.social_bizarre_movements" style="margin-right: 5px;">✔</span><span t-else="" style="margin-right: 5px;">☐</span> Indulges in bizarre meaningless movements</div>
-                                            <div t-if="doc.social_others" style="margin-top: 4px;"><strong>any others:</strong> <span t-field="doc.social_others"/></div>
+                                            <div>
+                                                <span t-if="doc.social_recognizes_parents" style="margin-right: 5px;">
+                                                    ✔
+                                                </span>
+                                                <span t-else="" style="margin-right: 5px;">☐</span>
+                                                Recognizes parents
+                                            </div>
+                                            <div>
+                                                <span t-if="doc.social_refuses_strangers" style="margin-right: 5px;">✔
+                                                </span>
+                                                <span t-else="" style="margin-right: 5px;">☐</span>
+                                                Refuses to go to strangers
+                                            </div>
+                                            <div>
+                                                <span t-if="doc.social_eye_contact" style="margin-right: 5px;">✔</span>
+                                                <span t-else="" style="margin-right: 5px;">☐</span>
+                                                makes eye contact
+                                            </div>
+                                            <div>
+                                                <span t-if="doc.social_play_alone" style="margin-right: 5px;">✔</span>
+                                                <span t-else="" style="margin-right: 5px;">☐</span>
+                                                Prefer to play by himself
+                                            </div>
+                                            <div>
+                                                <span t-if="doc.social_parallel_play" style="margin-right: 5px;">✔
+                                                </span>
+                                                <span t-else="" style="margin-right: 5px;">☐</span>
+                                                Indulges in parallel play
+                                            </div>
+                                            <div>
+                                                <span t-if="doc.social_peers_elders" style="margin-right: 5px;">✔</span>
+                                                <span t-else="" style="margin-right: 5px;">☐</span>
+                                                Socializes easily with peers and elders
+                                            </div>
+                                            <div>
+                                                <span t-if="doc.social_looks_after" style="margin-right: 5px;">✔</span>
+                                                <span t-else="" style="margin-right: 5px;">☐</span>
+                                                Looks after himself
+                                            </div>
+                                            <div>
+                                                <span t-if="doc.social_play_pets" style="margin-right: 5px;">✔</span>
+                                                <span t-else="" style="margin-right: 5px;">☐</span>
+                                                prefers to play with pets
+                                            </div>
+                                            <div>
+                                                <span t-if="doc.social_quarrelsome" style="margin-right: 5px;">✔</span>
+                                                <span t-else="" style="margin-right: 5px;">☐</span>
+                                                Quarrelsome for petty matters
+                                            </div>
+                                            <div>
+                                                <span t-if="doc.social_temper" style="margin-right: 5px;">✔</span>
+                                                <span t-else="" style="margin-right: 5px;">☐</span>
+                                                Exhibits Temper tantrums
+                                            </div>
+                                            <div>
+                                                <span t-if="doc.social_engrossed" style="margin-right: 5px;">✔</span>
+                                                <span t-else="" style="margin-right: 5px;">☐</span>
+                                                Gets engrossed in one activity
+                                            </div>
+                                            <div>
+                                                <span t-if="doc.social_shifts_frequently" style="margin-right: 5px;">✔
+                                                </span>
+                                                <span t-else="" style="margin-right: 5px;">☐</span>
+                                                Shifts frequently from one activity to another
+                                            </div>
+                                            <div>
+                                                <span t-if="doc.social_irritable" style="margin-right: 5px;">✔</span>
+                                                <span t-else="" style="margin-right: 5px;">☐</span>
+                                                Irritable
+                                            </div>
+                                            <div>
+                                                <span t-if="doc.social_distractive" style="margin-right: 5px;">✔</span>
+                                                <span t-else="" style="margin-right: 5px;">☐</span>
+                                                Distractive
+                                            </div>
+                                            <div>
+                                                <span t-if="doc.social_aggressive" style="margin-right: 5px;">✔</span>
+                                                <span t-else="" style="margin-right: 5px;">☐</span>
+                                                Aggressive
+                                            </div>
+                                            <div>
+                                                <span t-if="doc.social_withdrawn" style="margin-right: 5px;">✔</span>
+                                                <span t-else="" style="margin-right: 5px;">☐</span>
+                                                Withdrawn
+                                            </div>
+                                            <div>
+                                                <span t-if="doc.social_restless" style="margin-right: 5px;">✔</span>
+                                                <span t-else="" style="margin-right: 5px;">☐</span>
+                                                Restless
+                                            </div>
+                                            <div>
+                                                <span t-if="doc.social_bizarre_movements" style="margin-right: 5px;">✔
+                                                </span>
+                                                <span t-else="" style="margin-right: 5px;">☐</span>
+                                                Indulges in bizarre meaningless movements
+                                            </div>
+                                            <div t-if="doc.social_others" style="margin-top: 4px;">
+                                                <strong>any others:</strong>
+                                                <span t-field="doc.social_others"/>
+                                            </div>
                                         </div>
                                     </div>
 
                                     <!-- (9) Language Development -->
                                     <div style="margin-bottom: 12px;">
-                                        <h4 style="margin: 6px 0 4px 0; font-size: 13pt; font-weight: bold; border-bottom: 1px solid #000; padding-bottom: 3px;">(9) Language Development</h4>
+                                        <h4 style="margin: 6px 0 4px 0; font-size: 13pt; font-weight: bold; border-bottom: 1px solid #000; padding-bottom: 3px;">
+                                            (9) Language Development
+                                        </h4>
                                         <div style="margin-left: 10px; font-size: 11pt; line-height: 1.6;">
-                                            <div>(i) (a) Babbling: <span t-field="doc.lang_babbling"/></div>
-                                            <div style="margin-left: 12px;">(b) First word: <span t-field="doc.lang_first_word"/></div>
-                                            <div style="margin-left: 12px;">(c) First sentence: <span t-field="doc.lang_first_sentence"/></div>
-                                            <div t-if="doc.lang_receptive" style="margin-top: 4px;">(ii) Receptive language: <span t-field="doc.lang_receptive"/></div>
-                                            <div t-if="doc.lang_expressive" style="margin-top: 6px;"><strong>Expressive Language:</strong><br/><span t-field="doc.lang_expressive"/></div>
+                                            <div>(i) (a) Babbling:
+                                                <span t-field="doc.lang_babbling"/>
+                                            </div>
+                                            <div style="margin-left: 12px;">(b) First word:
+                                                <span t-field="doc.lang_first_word"/>
+                                            </div>
+                                            <div style="margin-left: 12px;">(c) First sentence:
+                                                <span t-field="doc.lang_first_sentence"/>
+                                            </div>
+                                            <div t-if="doc.lang_receptive" style="margin-top: 4px;">(ii) Receptive
+                                                language:
+                                                <span t-field="doc.lang_receptive"/>
+                                            </div>
+                                            <div t-if="doc.lang_expressive" style="margin-top: 6px;">
+                                                <strong>Expressive Language:</strong>
+                                                <br/>
+                                                <span t-field="doc.lang_expressive"/>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -275,19 +671,31 @@
                                     <div style="margin-bottom: 12px;">
                                         <div style="font-size: 11pt; margin-bottom: 5px; line-height: 1.6;">
                                             <strong>(10) Misarticulations, if any:</strong>
-                                            <div t-if="doc.misarticulations" style="margin-left: 10px; margin-top: 3px;"><span t-field="doc.misarticulations"/></div>
+                                            <div t-if="doc.misarticulations"
+                                                 style="margin-left: 10px; margin-top: 3px;">
+                                                <span t-field="doc.misarticulations"/>
+                                            </div>
                                         </div>
                                         <div style="font-size: 11pt; margin-bottom: 5px; line-height: 1.6;">
                                             <strong>(11) Exposure to more than one language:</strong>
-                                            <div t-if="doc.exposure_languages" style="margin-left: 10px; margin-top: 3px;"><span t-field="doc.exposure_languages"/></div>
+                                            <div t-if="doc.exposure_languages"
+                                                 style="margin-left: 10px; margin-top: 3px;">
+                                                <span t-field="doc.exposure_languages"/>
+                                            </div>
                                         </div>
                                         <div style="font-size: 11pt; margin-bottom: 5px; line-height: 1.6;">
                                             <strong>(12) How much speech stimulation at home:</strong>
-                                            <div t-if="doc.speech_stimulation_home" style="margin-left: 10px; margin-top: 3px;"><span t-field="doc.speech_stimulation_home"/></div>
+                                            <div t-if="doc.speech_stimulation_home"
+                                                 style="margin-left: 10px; margin-top: 3px;">
+                                                <span t-field="doc.speech_stimulation_home"/>
+                                            </div>
                                         </div>
                                         <div style="font-size: 11pt; margin-bottom: 12px; line-height: 1.6;">
                                             <strong>(13) Educational Background:</strong>
-                                            <div t-if="doc.educational_background" style="margin-left: 10px; margin-top: 3px;"><span t-field="doc.educational_background"/></div>
+                                            <div t-if="doc.educational_background"
+                                                 style="margin-left: 10px; margin-top: 3px;">
+                                                <span t-field="doc.educational_background"/>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -295,70 +703,116 @@
 
                                 <!-- Right Column - Page 2 -->
                                 <td style="width: 50%; padding-left: 10px;">
-                                    
+
                                     <!-- Sensory Input -->
                                     <div style="margin-bottom: 18px;">
-                                        <h4 style="margin: 6px 0 4px 0; font-size: 13pt; font-weight: bold; border-bottom: 1px solid #000; padding-bottom: 3px;">Sensory Input:</h4>
+                                        <h4 style="margin: 6px 0 4px 0; font-size: 13pt; font-weight: bold; border-bottom: 1px solid #000; padding-bottom: 3px;">
+                                            Sensory Input:
+                                        </h4>
                                         <div style="margin-left: 10px; font-size: 11pt; line-height: 1.7;">
                                             <div style="margin-bottom: 7px;">
                                                 <strong>Tactile:</strong>
-                                                <div t-if="doc.sensory_tactile" style="margin-left: 10px; margin-top: 3px;"><span t-field="doc.sensory_tactile"/></div>
-                                                <div t-else="" style="margin-left: 10px; margin-top: 3px; color: #999;">_________________</div>
+                                                <div t-if="doc.sensory_tactile"
+                                                     style="margin-left: 10px; margin-top: 3px;">
+                                                    <span t-field="doc.sensory_tactile"/>
+                                                </div>
+                                                <div t-else="" style="margin-left: 10px; margin-top: 3px; color: #999;">
+                                                    _________________
+                                                </div>
                                             </div>
                                             <div style="margin-bottom: 7px;">
                                                 <strong>Visual:</strong>
-                                                <div t-if="doc.sensory_visual" style="margin-left: 10px; margin-top: 3px;"><span t-field="doc.sensory_visual"/></div>
-                                                <div t-else="" style="margin-left: 10px; margin-top: 3px; color: #999;">_________________</div>
+                                                <div t-if="doc.sensory_visual"
+                                                     style="margin-left: 10px; margin-top: 3px;">
+                                                    <span t-field="doc.sensory_visual"/>
+                                                </div>
+                                                <div t-else="" style="margin-left: 10px; margin-top: 3px; color: #999;">
+                                                    _________________
+                                                </div>
                                             </div>
                                             <div style="margin-bottom: 7px;">
                                                 <strong>Alfactory:</strong>
-                                                <div t-if="doc.sensory_alfactory" style="margin-left: 10px; margin-top: 3px;"><span t-field="doc.sensory_alfactory"/></div>
-                                                <div t-else="" style="margin-left: 10px; margin-top: 3px; color: #999;">_________________</div>
+                                                <div t-if="doc.sensory_alfactory"
+                                                     style="margin-left: 10px; margin-top: 3px;">
+                                                    <span t-field="doc.sensory_alfactory"/>
+                                                </div>
+                                                <div t-else="" style="margin-left: 10px; margin-top: 3px; color: #999;">
+                                                    _________________
+                                                </div>
                                             </div>
                                             <div style="margin-bottom: 7px;">
                                                 <strong>Gustatory:</strong>
-                                                <div t-if="doc.sensory_gustatory" style="margin-left: 10px; margin-top: 3px;"><span t-field="doc.sensory_gustatory"/></div>
-                                                <div t-else="" style="margin-left: 10px; margin-top: 3px; color: #999;">_________________</div>
+                                                <div t-if="doc.sensory_gustatory"
+                                                     style="margin-left: 10px; margin-top: 3px;">
+                                                    <span t-field="doc.sensory_gustatory"/>
+                                                </div>
+                                                <div t-else="" style="margin-left: 10px; margin-top: 3px; color: #999;">
+                                                    _________________
+                                                </div>
                                             </div>
                                             <div style="margin-bottom: 7px;">
                                                 <strong>Vestibular:</strong>
-                                                <div t-if="doc.sensory_vestibular" style="margin-left: 10px; margin-top: 3px;"><span t-field="doc.sensory_vestibular"/></div>
-                                                <div t-else="" style="margin-left: 10px; margin-top: 3px; color: #999;">_________________</div>
+                                                <div t-if="doc.sensory_vestibular"
+                                                     style="margin-left: 10px; margin-top: 3px;">
+                                                    <span t-field="doc.sensory_vestibular"/>
+                                                </div>
+                                                <div t-else="" style="margin-left: 10px; margin-top: 3px; color: #999;">
+                                                    _________________
+                                                </div>
                                             </div>
                                             <div style="margin-bottom: 7px;">
                                                 <strong>Proprioceptive:</strong>
-                                                <div t-if="doc.sensory_proprioceptive" style="margin-left: 10px; margin-top: 3px;"><span t-field="doc.sensory_proprioceptive"/></div>
-                                                <div t-else="" style="margin-left: 10px; margin-top: 3px; color: #999;">_________________</div>
+                                                <div t-if="doc.sensory_proprioceptive"
+                                                     style="margin-left: 10px; margin-top: 3px;">
+                                                    <span t-field="doc.sensory_proprioceptive"/>
+                                                </div>
+                                                <div t-else="" style="margin-left: 10px; margin-top: 3px; color: #999;">
+                                                    _________________
+                                                </div>
                                             </div>
                                             <div style="margin-bottom: 7px;">
                                                 <strong>Auditory:</strong>
-                                                <div t-if="doc.sensory_auditory" style="margin-left: 10px; margin-top: 3px;"><span t-field="doc.sensory_auditory"/></div>
-                                                <div t-else="" style="margin-left: 10px; margin-top: 3px; color: #999;">_________________</div>
+                                                <div t-if="doc.sensory_auditory"
+                                                     style="margin-left: 10px; margin-top: 3px;">
+                                                    <span t-field="doc.sensory_auditory"/>
+                                                </div>
+                                                <div t-else="" style="margin-left: 10px; margin-top: 3px; color: #999;">
+                                                    _________________
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
 
-                                     <!-- Summary and Diagnosis -->
+                                    <!-- Summary and Diagnosis -->
                                     <div style="margin-top: 18px;">
                                         <div style="margin-bottom: 12px;">
-                                            <strong style="font-size: 12pt; display: block; margin-bottom: 4px;">Summary of findings:</strong>
-                                            <div t-if="doc.summary_findings" style="border: 1px solid #000; min-height: 60px; padding: 5px; font-size: 11pt; line-height: 1.5;">
+                                            <strong style="font-size: 12pt; display: block; margin-bottom: 4px;">Summary
+                                                of findings:
+                                            </strong>
+                                            <div t-if="doc.summary_findings"
+                                                 style="border: 1px solid #000; min-height: 60px; padding: 5px; font-size: 11pt; line-height: 1.5;">
                                                 <span t-field="doc.summary_findings"/>
                                             </div>
                                             <div t-else="" style="border: 1px solid #000; min-height: 60px;"></div>
                                         </div>
 
                                         <div style="margin-bottom: 12px;">
-                                            <strong style="font-size: 12pt; display: block; margin-bottom: 4px;">Provisional diagnosis:</strong>
-                                            <div t-if="doc.provisional_diagnosis" style="border: 1px solid #000; min-height: 60px; padding: 5px; font-size: 11pt; line-height: 1.5;">
+                                            <strong style="font-size: 12pt; display: block; margin-bottom: 4px;">
+                                                Provisional diagnosis:
+                                            </strong>
+                                            <div t-if="doc.provisional_diagnosis"
+                                                 style="border: 1px solid #000; min-height: 60px; padding: 5px; font-size: 11pt; line-height: 1.5;">
                                                 <span t-field="doc.provisional_diagnosis"/>
                                             </div>
                                             <div t-else="" style="border: 1px solid #000; min-height: 60px;"></div>
                                         </div>
 
                                         <div style="margin-bottom: 25px;">
-                                            <strong style="font-size: 12pt; display: block; margin-bottom: 4px;">Recommendations:</strong>
-                                            <div t-if="doc.recommendations" style="border: 1px solid #000; min-height: 60px; padding: 5px; font-size: 11pt; line-height: 1.5;">
+                                            <strong style="font-size: 12pt; display: block; margin-bottom: 4px;">
+                                                Recommendations:
+                                            </strong>
+                                            <div t-if="doc.recommendations"
+                                                 style="border: 1px solid #000; min-height: 60px; padding: 5px; font-size: 11pt; line-height: 1.5;">
                                                 <span t-field="doc.recommendations"/>
                                             </div>
                                             <div t-else="" style="border: 1px solid #000; min-height: 60px;"></div>
@@ -382,14 +836,29 @@
                                     </td>
                                     <td style="width: 50%; text-align: center; vertical-align: bottom;">
                                         <div style="display: inline-block; min-width: 200px;">
+                                            <t t-if="doc.clinician_id and doc.clinician_id.signature">
+                                                <!-- Signature of the clinician -->
+                                                <div style="display:flex; flex-direction:column-reverse; align-items:flex-start;">
+                                                    <div style="border-top:1px solid #000; width:220px; margin-top:50px;"></div>
+                                                    <img t-att-src="'data:image/png;base64,%s' % doc.clinician_id.signature.decode('utf-8')"
+                                                         style="width:200px; height:auto; margin-bottom:-40px; margin-left:0;"
+                                                         alt="Clinician Signature"/>
+                                                </div>
+                                            </t>
+
+                                            <t t-if="not doc.clinician_id or not doc.clinician_id.signature">
+
+                                            </t>
                                             <div style="border-top: 1px solid #000; padding-top: 6px; font-size: 12pt;">
                                                 <strong>Clinician</strong>
+                                                <br/>
                                             </div>
                                         </div>
                                     </td>
                                 </tr>
                             </table>
                         </div>
+
 
                     </div>
                 </t>

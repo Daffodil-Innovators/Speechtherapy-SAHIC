@@ -15,6 +15,19 @@
                 </page>
             </xpath>
 
+            <xpath expr="//field[@name='visit_count']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='no_invoice']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+
+            <xpath expr="//field[@name='company_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
             <!-- General History Page - Added after Advice Selection -->
             <xpath expr="//notebook/page[@name='advice_selection']" position="after">
                 <page name="general_history" string="General History">
@@ -248,7 +261,8 @@
 
             <xpath expr="//group/group/field[@name='company_id']" position="after">
                 <field name="date" string="Speechtherapy Date"/>
-                <field name="physiotherapist_id"/>
+                <field name="physiotherapist_id" required="1" />
+                <field name="clinician_id"/>
             </xpath>
 
             <xpath expr="//page[@name='physiotherapy_info']" position="attributes">

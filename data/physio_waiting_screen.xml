@@ -6,8 +6,10 @@
             <field name="name">Speech Therapy: Waiting Screen</field>
             <field name="code">STWS</field>
             <field name="res_model_id" ref="dsl_hms_physiotherapy.model_dsl_physiotherapy"/>
-            <field name="dsl_physician_field_id" search="[('model', '=', 'dsl.physiotherapy'), ('name', '=', 'physiotherapist_id')]"/>
-            <field name="dsl_patient_field_id" search="[('model', '=', 'dsl.physiotherapy'), ('name', '=', 'patient_id')]"/>
+            <field name="dsl_physician_field_id"
+                   search="[('model', '=', 'dsl.physiotherapy'), ('name', '=', 'physiotherapist_id')]"/>
+            <field name="dsl_patient_field_id"
+                   search="[('model', '=', 'dsl.physiotherapy'), ('name', '=', 'patient_id')]"/>
             <field name="dsl_state_field_id" search="[('model', '=', 'dsl.physiotherapy'), ('name', '=', 'state')]"/>
             <field name="dsl_states_to_include">['in_queue','in_progress']</field>
             <field name="in_progress_state">in_progress</field>

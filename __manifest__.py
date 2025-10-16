@@ -1,8 +1,8 @@
 {
-    'name': 'Extended Physiotherapy Hospital Management System',
-    'summary': 'Physiotherapy Hospital Management System to manage Physiotherapy related flows.',
+    'name': 'Extended Speechtherapy Hospital Management System',
+    'summary': 'Speechtherapy Hospital Management System to manage Speechtherapy related flows.',
     'description': """
-    Hospital Physiotherapy dsl hms hospital management system medical health care management 
+    Hospital Speechtherapy dsl hms hospital management system medical health care management 
     """,
     'version': '1.0.1',
     'category': 'Medical',
@@ -10,9 +10,9 @@
     'support': 'https://daffodil-bd.com',
     'website': 'https://daffodil-bd.com',
     'license': 'AGPL-3',
-    'depends': ['dsl_hms_physiotherapy','dsl_hms_next_patient_screen'],
+    'depends': ['dsl_hms_physiotherapy', 'dsl_hms_next_patient_screen'],
     'data': [
-        
+
         'data/physio_waiting_screen.xml',
         'data/report_paperformat.xml',
 
@@ -39,7 +39,7 @@
         'views/menu_invisible.xml',
         'views/speechtherapy_advice.xml',
         'views/general_history.xml',
-'views/physiotherapy_extension_views.xml',
+        # 'views/physiotherapy_extension_views.xml',
         'views/clinician.xml',
 
         # Menus
