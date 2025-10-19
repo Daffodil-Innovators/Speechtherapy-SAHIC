@@ -31,14 +31,13 @@
 
         # Extra views
         'views/physiotherpist.xml',
-
+        'views/general_history.xml',
         'views/invoice_flow.xml',
         'views/menuitem_inherit.xml',
         'views/speech_therapy_type.xml',
         'views/physio_waiting_template.xml',
         'views/menu_invisible.xml',
         'views/speechtherapy_advice.xml',
-        'views/general_history.xml',
         # 'views/physiotherapy_extension_views.xml',
         'views/clinician.xml',
 

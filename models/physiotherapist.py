@@ -15,6 +15,7 @@
 # -*- coding: utf-8 -*-
 # -*- coding: utf-8 -*-
 from odoo import fields, models, api
+from lxml import etree
 
 
 class DSLPhysiotherapist(models.Model):
@@ -74,3 +75,5 @@ class DSLPhysiotherapist(models.Model):
         """Auto-populate partner and all related data when user is selected"""
         if self.user_id and self.user_id.partner_id:
             self.partner_id = self.user_id.partner_id
+
+

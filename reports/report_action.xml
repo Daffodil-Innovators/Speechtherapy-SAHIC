@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <report
-            id="action_report_dsl_physiotherapy"
-            model="dsl.physiotherapy"
-            string="Daily Physiotherapy Report"
-            report_type="qweb-pdf"
-            name="dsl_hms_physiotherapy_extension.report_dsl_physiotherapy_document"
-            file="dsl_hms_physiotherapy_extension.report_dsl_physiotherapy_document"
-            print_report_name="'Physiotherapy_%s' % (object.name or '')"
-    />
+<!--    <report-->
+<!--            id="action_report_dsl_physiotherapy"-->
+<!--            model="dsl.physiotherapy"-->
+<!--            string="Daily Physiotherapy Report"-->
+<!--            report_type="qweb-pdf"-->
+<!--            name="dsl_hms_physiotherapy_extension.report_dsl_physiotherapy_document"-->
+<!--            file="dsl_hms_physiotherapy_extension.report_dsl_physiotherapy_document"-->
+<!--            print_report_name="'Physiotherapy_%s' % (object.name or '')"-->
+<!--    />-->
 
-    <report
-            id="action_report_dsl_physiotherapy_history"
-            model="dsl.physiotherapy"
-            string="Physiotherapy History Report"
-            report_type="qweb-pdf"
-            name="dsl_hms_physiotherapy_extension.report_dsl_physiotherapy_history_document"
-            file="dsl_hms_physiotherapy_extension.report_dsl_physiotherapy_history_document"
-            print_report_name="'Physiotherapy_History_%s' % (object.name or '')"
-    />
+<!--    <report-->
+<!--            id="action_report_dsl_physiotherapy_history"-->
+<!--            model="dsl.physiotherapy"-->
+<!--            string="Physiotherapy History Report"-->
+<!--            report_type="qweb-pdf"-->
+<!--            name="dsl_hms_physiotherapy_extension.report_dsl_physiotherapy_history_document"-->
+<!--            file="dsl_hms_physiotherapy_extension.report_dsl_physiotherapy_history_document"-->
+<!--            print_report_name="'Physiotherapy_History_%s' % (object.name or '')"-->
+<!--    />-->
 
 
     <record id="action_report_dsl_physiotherapy_summary" model="ir.actions.report">

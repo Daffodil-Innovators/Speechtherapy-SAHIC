@@ -1,8 +1,8 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_physio_report_wizard,access.physiotherapy.report.wizard,model_physiotherapy_report_wizard,dsl_hms_base.group_hms_manager,1,1,1,1
-access_dsl_physiotherapist_user,dsl.physiotherapist.user,model_dsl_physiotherapist,base.group_user,1,1,1,0
+access_dsl_physiotherapist_user,dsl.physiotherapist.user,model_dsl_physiotherapist,dsl_hms_base.group_hms_manager,1,1,1,0
 access_speech_therapy_type_manager,access.speech.therapy.type.manager,model_speech_therapy_type,dsl_hms_base.group_hms_manager,1,1,1,1
-access_dsl_speechtherapy_advice,dsl.speechtherapy.advice,model_speechtherapy_advice,,1,1,1,0
+access_dsl_speechtherapy_advice,dsl.speechtherapy.advice,model_speechtherapy_advice,dsl_hms_base.group_hms_manager,1,1,1,0
 access_dsl_clinician_user,dsl.clinician.user,model_dsl_clinician,base.group_user,1,1,1,0
 access_dsl_clinician_user,dsl.clinician.user,model_dsl_clinician,dsl_hms_base.group_hms_manager,1,1,1,1
 

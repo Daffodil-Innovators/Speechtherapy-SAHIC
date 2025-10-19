@@ -259,11 +259,37 @@
                 </page>
             </xpath>
 
-            <xpath expr="//group/group/field[@name='company_id']" position="after">
-                <field name="date" string="Speechtherapy Date"/>
-                <field name="physiotherapist_id" required="1" />
-                <field name="clinician_id"/>
+            <xpath expr="//field[@name='physiotherapist_id']" position="replace">
+                <field name="physiotherapist_id"
+                       required="1"
+                       options="{'no_open': True}"
+                       attrs="{'readonly': [('state', 'not in', ['pre_appointment'])]}"/>
             </xpath>
+
+
+            <xpath expr="//group/group/field[@name='company_id']" position="after">
+
+                <!-- Date -->
+                <field name="date" string="Speechtherapy Date"
+                       attrs="{'readonly': [('state', 'not in', ['pre_appointment'])]}"/>
+
+                <!-- Physiotherapist -->
+                <field name="physiotherapist_id" required="1"
+                       options="{'no_open': True}"
+                       attrs="{'readonly': [('state', 'not in', ['pre_appointment'])]}"/>
+
+                <!-- Clinician -->
+                <field name="clinician_id"
+                       options="{'no_open': True}"
+                       attrs="{'readonly': [('state', 'not in', ['pre_appointment'])]}"/>
+
+            </xpath>
+
+            <xpath expr="//field[@name='patient_id']" position="attributes">
+                <attribute name="options">{'no_open': True}</attribute>
+                <attribute name="attrs">{'readonly': [('state', 'not in', ['pre_appointment'])]}</attribute>
+            </xpath>
+
 
             <xpath expr="//page[@name='physiotherapy_info']" position="attributes">
                 <attribute name="invisible">1</attribute>

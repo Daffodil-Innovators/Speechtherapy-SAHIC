@@ -63,7 +63,7 @@
 
             <!-- Add speechtherapy type field and queue number -->
             <field name="patient_id" position="after">
-                <field name="speechtherapy_type_id"
+                <field name="speechtherapy_type_id" options="{'no_open': True}"
                        attrs="{'readonly': [('state', 'not in', ['doctor_consultation'])],
                                'required': [('state', '=', 'doctor_consultation')]}"/>
                 <field name="no_invoice"
@@ -73,10 +73,10 @@
                        attrs="{'invisible': [('queue_number', '=', 0)]}"/>
             </field>
 
-            <field name="clinician_id" position="after">
-                <field name="queue_number" readonly="1"
-                       attrs="{'invisible': [('queue_number', '=', 0)]}"/>
-            </field>
+<!--            <field name="clinician_id" position="after">-->
+<!--                <field name="queue_number" readonly="1"-->
+<!--                       attrs="{'invisible': [('queue_number', '=', 0)]}"/>-->
+<!--            </field>-->
 
             <!-- Add session timing fields -->
             <field name="clinician_id" position="after">
